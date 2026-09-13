@@ -146,7 +146,7 @@
     aspect-ratio: 8 / 5;
     background:
         linear-gradient(rgba(5,5,8,0.42), rgba(5,5,8,0.42)),
-        url('../img/game/paseo-bolivar.jpg') center/cover no-repeat;
+        url('../img/game/paseo-bolivar.webp') center/cover no-repeat;
 }
 
 .vc-cell {

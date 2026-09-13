@@ -136,7 +136,7 @@
                     if (obs) {
                         cell.classList.add('is-obstacle');
                         const img = document.createElement('img');
-                        img.src = IMG + obs.sprite + '.png';
+                        img.src = IMG + obs.sprite + '.webp';
                         img.alt = '';
                         img.loading = 'lazy';
                         cell.appendChild(img);
@@ -150,7 +150,7 @@
         // Karlitos va encima del tablero, no dentro de una casilla.
         el.hero = document.createElement('img');
         el.hero.className = 'vc-hero';
-        el.hero.src = IMG + 'karlitos-idle.png';
+        el.hero.src = IMG + 'karlitos-idle.webp';
         el.hero.alt = 'Karlitos';
         el.board.appendChild(el.hero);
         placeHero(START.x, START.y, false);
@@ -233,7 +233,7 @@
     function say(text, isError) {
         el.msg.textContent = text;
         el.msg.classList.toggle('is-error', !!isError);
-        el.guide.src = IMG + (isError ? 'marimonda-talk.png' : 'marimonda-idle.png');
+        el.guide.src = IMG + (isError ? 'marimonda-talk.webp' : 'marimonda-idle.webp');
     }
 
     // ══════════════════════════════════════════════════
@@ -248,7 +248,7 @@
         renderSequence();
         el.btnRun.disabled = true;
         say(t().running, false);
-        el.hero.src = IMG + 'karlitos-run.png';
+        el.hero.src = IMG + 'karlitos-run.webp';
 
         let x = START.x, y = START.y;
         const step = reduced() ? 120 : 430;
@@ -268,7 +268,7 @@
             if (isObstacle(nx, ny)) {
                 cells[nx][ny].classList.add('is-crash');
                 highlightBlock(i, 'failed');
-                el.hero.src = IMG + 'karlitos-think.png';
+                el.hero.src = IMG + 'karlitos-think.webp';
                 await fail(t().crash(i + 1, t().obs[obstacleAt(nx, ny).key]));
                 return;
             }
@@ -302,7 +302,7 @@
         await sleep(reduced() ? 400 : 1100);
 
         placeHero(START.x, START.y, false);
-        el.hero.src = IMG + 'karlitos-idle.png';
+        el.hero.src = IMG + 'karlitos-idle.webp';
         el.hero.classList.remove('is-flipped');
         running = false;
         highlightBlock(-1);
@@ -321,8 +321,8 @@
     async function victory() {
         won = true;
         running = false;
-        el.hero.src = IMG + 'karlitos-win.png';
-        el.guide.src = IMG + 'marimonda-win.png';
+        el.hero.src = IMG + 'karlitos-win.webp';
+        el.guide.src = IMG + 'marimonda-win.webp';
         say(t().win, false);
         cells[GOAL.x][GOAL.y].classList.add('is-won');
 
@@ -352,9 +352,9 @@
         el.win.classList.remove('is-open');
         el.win.querySelectorAll('.vc-mask').forEach(m => m.classList.remove('is-earned'));
         cells[GOAL.x][GOAL.y].classList.remove('is-won');
-        el.hero.src = IMG + 'karlitos-idle.png';
+        el.hero.src = IMG + 'karlitos-idle.webp';
         el.hero.classList.remove('is-flipped');
-        el.guide.src = IMG + 'marimonda-idle.png';
+        el.guide.src = IMG + 'marimonda-idle.webp';
         placeHero(START.x, START.y, false);
         afterChange();
         say(t().welcome, false);

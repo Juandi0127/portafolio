@@ -1,6 +1,10 @@
 # Configuración local de Claude Code (no es parte del sitio)
 .claude/
 
+# Build de Netlify (se genera con node scripts/build.mjs)
+dist/
+__pycache__/
+
 # Sistema
 Thumbs.db
 desktop.ini
