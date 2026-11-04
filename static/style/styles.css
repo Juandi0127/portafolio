@@ -1685,6 +1685,15 @@ main { position: relative; z-index: 1; background: var(--bg); }
     .lb-next { right: calc(50% - 60px); }
 }
 
+/* Celular de lado (pantalla baja): la foto principal se vuelve apaisada para
+   no encogerse por el alto, y la pequeña se reduce para no taparla. */
+@media (max-width: 1023px) and (max-height: 560px) {
+    .hero-main { grid-column: 3 / 13; }
+    .hero-frame { aspect-ratio: 16 / 9; max-height: none; }
+    .hero-frame img { object-position: 50% 18%; }
+    .hero-small { grid-column: 1 / 4; margin-bottom: 40px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after {
