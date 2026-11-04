@@ -1,6 +1,7 @@
 /* ==========================================================================
    Juan Vanegas — Portafolio
-   Idioma · menú · scroll · animaciones · visor de imágenes · filtros · formulario
+   Idioma · menú · scroll · visor de imágenes · filtros · formulario
+   (Las animaciones de entrada y de scroll viven en motion.js)
    ========================================================================== */
 (function () {
     'use strict';
@@ -36,6 +37,8 @@
             toggleLabel: 'Ver el sitio en inglés',
             menuOpen: 'Abrir menú',
             menuClose: 'Cerrar menú',
+            menuWord: 'Menú',
+            closeWord: 'Cerrar',
             copied: 'Correo copiado',
             copyFail: 'No se pudo copiar el correo',
             sending: 'Enviando…',
@@ -47,6 +50,8 @@
             toggleLabel: 'Ver el sitio en español',
             menuOpen: 'Open menu',
             menuClose: 'Close menu',
+            menuWord: 'Menu',
+            closeWord: 'Close',
             copied: 'Email copied',
             copyFail: "Couldn't copy the email",
             sending: 'Sending…',
@@ -68,8 +73,8 @@
 
     function rememberSpanish(el) {
         if (el.hasAttribute('data-i18n')) return;
-        if (el.hasAttribute('data-en')) el.setAttribute('data-es', el.textContent);
-        if (el.hasAttribute('data-en-html')) el.setAttribute('data-es-html', el.innerHTML);
+        if (el.hasAttribute('data-en')) el.setAttribute('data-es', el.textContent.trim());
+        if (el.hasAttribute('data-en-html')) el.setAttribute('data-es-html', el.innerHTML.trim());
         I18N_ATTRS.forEach(attr => {
             if (el.hasAttribute('data-en-' + attr)) el.setAttribute('data-es-' + attr, el.getAttribute(attr) || '');
         });
@@ -111,6 +116,9 @@
         btn.addEventListener('click', () => applyLang(lang === 'es' ? 'en' : 'es', true));
     });
 
+    // Para que otros scripts sepan el idioma actual.
+    window.SiteLang = { get: () => lang };
+
     /* ---------- Avisos flotantes ---------- */
     const toast = $('#toast');
     let toastTimer = 0;
@@ -151,16 +159,23 @@
     })();
 
     /* ======================================================================
-       MENÚ
+       MENÚ (pantalla completa en tableta y móvil)
        ====================================================================== */
     const header = $('.site-header');
     const navToggle = $('.nav-toggle');
     const navLinks = $('#navLinks');
+    const mobileNav = window.matchMedia('(max-width: 1099px)');
+
+    // Índice de cada enlace para escalonar su entrada al abrir el menú.
+    if (navLinks) $$('a', navLinks).forEach((a, i) => a.style.setProperty('--li', i));
 
     function setMenu(open) {
         header.classList.toggle('is-open', open);
         navToggle.setAttribute('aria-expanded', String(open));
         navToggle.setAttribute('aria-label', UI[lang][open ? 'menuClose' : 'menuOpen']);
+        const word = $('.nav-toggle-label', navToggle);
+        if (word) word.textContent = UI[lang][open ? 'closeWord' : 'menuWord'];
+        document.body.classList.toggle('is-locked', open && mobileNav.matches);
     }
 
     if (header && navToggle && navLinks) {
@@ -177,22 +192,27 @@
             }
         });
         document.addEventListener('langchange', () => setMenu(header.classList.contains('is-open')));
-        window.matchMedia('(min-width: 961px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+        mobileNav.addEventListener('change', e => { if (!e.matches) setMenu(false); });
     }
 
     /* ======================================================================
-       SCROLL: barra de progreso, cabecera y botón para subir
+       SCROLL: cabecera (se esconde al bajar, vuelve al subir) y botón para subir
        ====================================================================== */
-    const progress = $('.scroll-progress');
     const toTop = $('.to-top');
     let ticking = false;
+    let lastY = window.scrollY;
 
     function onScroll() {
         const y = window.scrollY;
-        const max = root.scrollHeight - window.innerHeight;
-        if (header) header.classList.toggle('is-scrolled', y > 12);
+        if (header) {
+            header.classList.toggle('is-scrolled', y > 12);
+            const goingDown = y > lastY + 4;
+            const goingUp = y < lastY - 4;
+            if (goingDown && y > window.innerHeight * 0.6) header.classList.add('is-hidden');
+            else if (goingUp || y < 80) header.classList.remove('is-hidden');
+        }
         if (toTop) toTop.classList.toggle('is-visible', y > window.innerHeight * 1.2);
-        if (progress) progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
+        lastY = y;
         ticking = false;
     }
     window.addEventListener('scroll', () => {
@@ -202,6 +222,9 @@
         }
     }, { passive: true });
     onScroll();
+
+    // Al entrar con el teclado a la cabecera, que aparezca.
+    if (header) header.addEventListener('focusin', () => header.classList.remove('is-hidden'));
 
     if (toTop) {
         toTop.addEventListener('click', () => {
@@ -228,25 +251,6 @@
         spyTargets.forEach(section => spy.observe(section));
     }
 
-    /* ---------- Aparición al hacer scroll ----------
-       Solo se ocultan los bloques que aún están fuera de pantalla: si el JS
-       falla o tarda, nada queda invisible. */
-    if ('IntersectionObserver' in window && !reducedMotion.matches) {
-        const revealer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                entry.target.classList.add('is-visible');
-                revealer.unobserve(entry.target);
-            });
-        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
-
-        $$('.reveal').forEach(el => {
-            if (el.getBoundingClientRect().top < window.innerHeight * 0.92) return;
-            el.classList.add('reveal-pending');
-            revealer.observe(el);
-        });
-    }
-
     /* ======================================================================
        VISOR DE IMÁGENES (galerías con data-gallery)
        ====================================================================== */
@@ -265,15 +269,24 @@
         const captionOf = item => (lang === 'en' && item.getAttribute('data-en-caption')) ||
             item.getAttribute('data-caption') || ($('img', item) ? $('img', item).alt : '');
 
-        // Las fotos de tarjetas ocultas por un filtro no entran en la galería.
+        // Las fotos de filas ocultas por un filtro no entran en la galería.
         const galleryItems = name => $$('[data-gallery="' + name + '"]')
             .filter(el => !el.parentElement.closest('[hidden]'));
 
-        function render() {
+        function render(direction) {
             const item = items[index];
             if (!item) return;
             lbImg.classList.add('is-loading');
-            lbImg.onload = () => lbImg.classList.remove('is-loading');
+            lbImg.onload = () => {
+                lbImg.classList.remove('is-loading');
+                // Al pasar de foto, la nueva entra desde el lado hacia el que se avanzó.
+                if (direction && !reducedMotion.matches && lbImg.animate) {
+                    lbImg.animate([
+                        { opacity: 0, transform: 'translateX(' + (direction * 28) + 'px)', filter: 'blur(4px)' },
+                        { opacity: 1, transform: 'none', filter: 'blur(0)' }
+                    ], { duration: 340, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' });
+                }
+            };
             lbImg.src = item.getAttribute('href');
             lbImg.alt = ($('img', item) && $('img', item).alt) || captionOf(item);
             lbText.textContent = captionOf(item);
@@ -289,8 +302,8 @@
             lightbox.hidden = false;
             lightbox.classList.toggle('is-single', items.length < 2);
             document.body.classList.add('is-locked');
-            render();
-            requestAnimationFrame(() => lightbox.classList.add('is-open'));
+            render(0);
+            requestAnimationFrame(() => requestAnimationFrame(() => lightbox.classList.add('is-open')));
             lbClose.focus({ preventScroll: true });
         }
 
@@ -300,14 +313,14 @@
             closeTimer = setTimeout(() => {
                 lightbox.hidden = true;
                 lbImg.removeAttribute('src');
-            }, reducedMotion.matches ? 0 : 250);
+            }, reducedMotion.matches ? 0 : 200);
             if (returnFocus) returnFocus.focus({ preventScroll: true });
         }
 
         function step(delta) {
             if (items.length < 2) return;
             index = (index + delta + items.length) % items.length;
-            render();
+            render(delta);
         }
 
         document.addEventListener('click', e => {
@@ -349,14 +362,38 @@
             touchX = null;
         });
 
-        document.addEventListener('langchange', () => { if (!lightbox.hidden) render(); });
+        document.addEventListener('langchange', () => { if (!lightbox.hidden) render(0); });
     }
 
     /* ======================================================================
-       FILTROS DE CERTIFICADOS
+       FILTROS DE CERTIFICADOS (control segmentado con fondo deslizante)
        ====================================================================== */
+    const filtersBox = $('.filters');
     const filterButtons = $$('.filter');
+    const filterThumb = $('.filter-thumb');
     const certCards = $$('.cert');
+    const certGroups = $$('.cert-group');
+
+    function placeThumb(btn, instant) {
+        if (!filterThumb || !btn) return;
+        if (instant) filterThumb.style.transition = 'none';
+        filterThumb.style.setProperty('--x', btn.offsetLeft + 'px');
+        filterThumb.style.setProperty('--w', btn.offsetWidth + 'px');
+        filterThumb.style.top = btn.offsetTop + 'px';
+        if (instant) {
+            filterThumb.getBoundingClientRect();
+            filterThumb.style.transition = '';
+        }
+    }
+
+    if (filtersBox && filterThumb) {
+        const activeBtn = () => $('.filter.is-active', filtersBox);
+        placeThumb(activeBtn(), true);
+        filtersBox.classList.add('is-ready');
+        window.addEventListener('resize', () => placeThumb(activeBtn(), true));
+        document.addEventListener('langchange', () => placeThumb(activeBtn(), true));
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => placeThumb(activeBtn(), true));
+    }
 
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -366,11 +403,30 @@
                 b.classList.toggle('is-active', active);
                 b.setAttribute('aria-pressed', String(active));
             });
+            placeThumb(btn);
+
+            const shown = [];
             certCards.forEach(card => {
                 const show = filter === 'all' || card.getAttribute('data-cat') === filter;
+                const wasHidden = card.hidden;
                 card.hidden = !show;
-                if (show) card.classList.add('is-visible');
+                if (show && wasHidden) shown.push(card);
             });
+            certGroups.forEach(group => {
+                group.hidden = !$$('.cert', group).some(card => !card.hidden);
+            });
+
+            // Las filas que vuelven a aparecer entran una tras otra.
+            if (!reducedMotion.matches) {
+                shown.forEach((card, i) => {
+                    if (!card.animate) return;
+                    card.animate([
+                        { opacity: 0, transform: 'translateY(12px)' },
+                        { opacity: 1, transform: 'none' }
+                    ], { duration: 520, delay: i * 50, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'backwards' });
+                });
+            }
+            document.dispatchEvent(new CustomEvent('certsfiltered'));
         });
     });
 

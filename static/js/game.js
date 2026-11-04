@@ -45,7 +45,7 @@
             outside:  (n) => `¡Uy! En el paso ${n} Karlitos se sale del Paseo Bolívar. Cambia esa flecha y vuelve a intentar.`,
             crash:    (n, o) => `¡Cuidado! En el paso ${n} Karlitos choca con ${o}. Búscale la vuelta por otro lado.`,
             short:    'La secuencia se acabó antes de llegar a la estatua. Te faltan pasos: agrégalos al final. ¡No tienes que borrar todo!',
-            win:      '¡Llegaste a la estatua de Simón Bolívar! Recuperaste la partitura de la cumbia. 🎉',
+            win:      '¡Llegaste a la estatua de Simón Bolívar! Recuperaste la partitura de la cumbia.',
             hintLen:  (n) => `Pista de la Marimonda: se puede llegar con ${n} pasos. Cuenta las casillas antes de poner las flechas.`,
             hintDir:  (d) => `Pista de la Marimonda: el primer paso es hacia ${d}.`,
             dirs:     { R: 'DERECHA', L: 'IZQUIERDA', U: 'ARRIBA', D: 'ABAJO' },
@@ -66,7 +66,7 @@
             outside:  (n) => `Oops! On step ${n} Karlitos walks off the Paseo Bolívar. Change that arrow and try again.`,
             crash:    (n, o) => `Careful! On step ${n} Karlitos crashes into ${o}. Find another way around.`,
             short:    "The sequence ended before reaching the statue. You're missing steps — add them at the end. No need to erase everything!",
-            win:      'You reached the Simón Bolívar statue! You recovered the cumbia sheet music. 🎉',
+            win:      'You reached the Simón Bolívar statue! You recovered the cumbia sheet music.',
             hintLen:  (n) => `Marimonda's hint: it can be done in ${n} steps. Count the squares before placing arrows.`,
             hintDir:  (d) => `Marimonda's hint: the first step goes ${d}.`,
             dirs:     { R: 'RIGHT', L: 'LEFT', U: 'UP', D: 'DOWN' },
@@ -130,7 +130,7 @@
                     cell.classList.add('is-start');
                 } else if (x === GOAL.x && y === GOAL.y) {
                     cell.classList.add('is-goal');
-                    cell.innerHTML = '<span class="vc-goal-flag">🏆</span>';
+                    cell.innerHTML = '<svg class="icon vc-goal-flag" aria-hidden="true"><use href="static/img/icons.svg#trophy"></use></svg>';
                 } else {
                     const obs = obstacleAt(x, y);
                     if (obs) {

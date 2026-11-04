@@ -6,7 +6,7 @@
     <title data-en="Juan Vanegas — Full Stack Developer &amp; AI Automation">Juan Vanegas — Desarrollador Full Stack y automatización con IA</title>
     <meta name="description" content="Juan Vanegas (Juandi), desarrollador full stack de 16 años y CEO de nodo.dev en Barranquilla, Colombia. Apps web, automatización con agentes de IA, videojuegos educativos y liderazgo estudiantil." data-en-content="Juan Vanegas (Juandi), 16-year-old full stack developer and CEO of nodo.dev from Barranquilla, Colombia. Web apps, AI-agent automation, educational games and student leadership.">
     <meta name="author" content="Juan Vanegas">
-    <meta name="theme-color" content="#07070b">
+    <meta name="theme-color" content="#0a0d14">
     <meta name="color-scheme" content="dark">
     <link rel="canonical" href="https://juanvanegas.dev/">
 
@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="static/style/styles.css">
     <link rel="stylesheet" href="static/style/game.css">
     <script src="static/js/script.js" defer></script>
+    <script src="static/js/motion.js" defer></script>
     <script src="static/js/game.js" defer></script>
 
     <script type="application/ld+json">
@@ -71,14 +72,11 @@
 </head>
 <body>
     <a class="skip-link" href="#main" data-en="Skip to content">Saltar al contenido</a>
-    <div class="scroll-progress" aria-hidden="true"></div>
 
     <!-- ===================== NAVEGACIÓN ===================== -->
     <header class="site-header">
-        <nav class="nav container" aria-label="Principal" data-en-aria-label="Main">
-            <a href="#inicio" class="nav-logo" aria-label="Juan Vanegas, ir al inicio" data-en-aria-label="Juan Vanegas, go to top">
-                <span class="logo-bracket">&lt;</span>Juandi<span class="logo-bracket">/&gt;</span>
-            </a>
+        <nav class="nav" aria-label="Principal" data-en-aria-label="Main">
+            <a href="#inicio" class="nav-logo" aria-label="Juan Vanegas, ir al inicio" data-en-aria-label="Juan Vanegas, go to top">Juandi</a>
 
             <ul class="nav-links" id="navLinks">
                 <li><a href="#sobre-mi" data-en="About">Sobre mí</a></li>
@@ -97,7 +95,8 @@
                 </button>
                 <a href="#contacto" class="btn btn-primary btn-sm nav-cta" data-en="Let's talk">Hablemos</a>
                 <button class="nav-toggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="Abrir menú">
-                    <span></span><span></span><span></span>
+                    <span class="nav-toggle-label">Menú</span>
+                    <span class="nav-toggle-icon" aria-hidden="true"><i></i><i></i></span>
                 </button>
             </div>
         </nav>
@@ -106,138 +105,119 @@
     <main id="main">
 
         <!-- ===================== HERO ===================== -->
-        <section class="hero" id="inicio">
-            <div class="hero-bg" aria-hidden="true">
-                <div class="hero-grid"></div>
-                <div class="hero-glow hero-glow-1"></div>
-                <div class="hero-glow hero-glow-2"></div>
-            </div>
-
-            <div class="container hero-inner">
+        <section class="hero" id="inicio" aria-labelledby="hero-title">
+            <div class="wrap hero-grid">
                 <div class="hero-copy">
-                    <p class="hero-badge">
-                        <span class="dot" aria-hidden="true"></span>
-                        <span data-en="CEO at nodo.dev · Open to projects">CEO de nodo.dev · Disponible para proyectos</span>
-                    </p>
-                    <h1 class="hero-title">
-                        <span class="hero-greeting" data-en="Hi, I'm">Hola, soy</span>
-                        <span class="hero-name">Juan Vanegas</span>
+                    <h1 class="hero-title" id="hero-title">
+                        <span class="line"><span data-line style="--i:0">Juan</span></span>
+                        <span class="line"><span data-line style="--i:1">Vanegas</span></span>
                     </h1>
-                    <p class="hero-role">
-                        <span class="prompt" aria-hidden="true">&gt;</span>
-                        <span data-en="Full Stack Developer · AI Automation">Desarrollador Full Stack · Automatización con IA</span>
-                    </p>
-                    <p class="hero-lead" data-en-html="I'm &lt;strong&gt;16&lt;/strong&gt;, I've been writing code since I was 6, and I build &lt;strong&gt;web apps and AI-agent automations&lt;/strong&gt; for schools and businesses. Based in Barranquilla, Colombia.">
+                    <p class="hero-role" data-load style="--d:380ms" data-en="Full stack developer and AI automation. CEO of nodo.dev.">Desarrollador full stack y automatización con IA. CEO de nodo.dev.</p>
+                    <p class="hero-lead" data-load style="--d:460ms" data-en-html="I'm &lt;strong&gt;16&lt;/strong&gt;, I've been writing code since I was 6, and I build &lt;strong&gt;web apps and AI-agent automations&lt;/strong&gt; for schools and businesses. Based in Barranquilla, Colombia.">
                         Tengo <strong>16 años</strong>, escribo código desde los 6 y construyo <strong>aplicaciones web y automatizaciones con agentes de IA</strong> para instituciones y negocios. Desde Barranquilla, Colombia.
                     </p>
-                    <div class="hero-actions">
+                    <div class="hero-actions" data-load style="--d:540ms">
                         <a href="#proyectos" class="btn btn-primary">
                             <span data-en="See my projects">Ver proyectos</span>
                             <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#arrow-right"></use></svg>
                         </a>
-                        <a href="#juego" class="btn btn-ghost">
+                        <a href="#juego" class="text-link">
                             <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#gamepad-2"></use></svg>
                             <span data-en="Play my game">Juega mi videojuego</span>
                         </a>
                     </div>
-                    <ul class="socials" aria-label="Redes sociales" data-en-aria-label="Social links">
-                        <li><a href="https://github.com/Juandi0127" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#github"></use></svg></a></li>
-                        <li><a href="https://www.instagram.com/j.vanegass/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#instagram"></use></svg></a></li>
-                        <li><a href="https://www.tiktok.com/@juamdi.ww" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#tiktok"></use></svg></a></li>
-                        <li><a href="https://discord.com/users/975849415300505643" target="_blank" rel="noopener" aria-label="Discord"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#discord"></use></svg></a></li>
-                        <li><a href="mailto:vanegasarrietajuandiego@gmail.com" aria-label="Correo" data-en-aria-label="Email"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#mail"></use></svg></a></li>
-                    </ul>
-                </div>
-
-                <div class="hero-visual">
-                    <figure class="hero-photo hero-photo-main">
-                        <img src="static/img/photos/clase-python-sm.webp" width="720" height="960" alt="Juan explicando código Python frente a un grupo de estudiantes" data-en-alt="Juan explaining Python code to a group of students" fetchpriority="high" decoding="async">
-                        <figcaption>
-                            <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#presentation"></use></svg>
-                            <span data-en="Teaching Python">Enseñando Python</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="hero-photo hero-photo-top">
-                        <img src="static/img/photos/normun-debate-sm.webp" width="675" height="1200" alt="Juan de traje dirigiendo el debate en el modelo NORMUN" data-en-alt="Juan in a suit leading the debate at NORMUN" decoding="async">
-                        <figcaption>
-                            <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#globe"></use></svg>
-                            <span data-en="Chairing NORMUN">Presidiendo NORMUN</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="hero-photo hero-photo-bottom">
-                        <img src="static/img/photos/hackaton-2026-premiacion-sm.webp" width="720" height="540" alt="Juan con su certificado en la Hackatón BAQ 2026" data-en-alt="Juan holding his certificate at Hackatón BAQ 2026" decoding="async">
-                        <figcaption>
-                            <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#trophy"></use></svg>
-                            <span>Hackatón BAQ 2026</span>
-                        </figcaption>
-                    </figure>
-                    <div class="hero-chip">
-                        <img src="static/img/brand/nodo-logo.webp" width="160" height="160" alt="">
-                        <div>
-                            <strong>nodo<span>.dev</span></strong>
-                            <small data-en="Founder &amp; CEO">Fundador y CEO</small>
-                        </div>
+                    <div class="hero-foot" data-load style="--d:620ms">
+                        <p class="status"><span class="status-dot" aria-hidden="true"></span><span data-en="Open to projects">Disponible para proyectos</span></p>
+                        <ul class="socials" aria-label="Redes sociales" data-en-aria-label="Social links">
+                            <li><a href="https://github.com/Juandi0127" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#github"></use></svg></a></li>
+                            <li><a href="https://www.instagram.com/j.vanegass/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#instagram"></use></svg></a></li>
+                            <li><a href="https://www.tiktok.com/@juamdi.ww" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#tiktok"></use></svg></a></li>
+                            <li><a href="https://discord.com/users/975849415300505643" target="_blank" rel="noopener" aria-label="Discord"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#discord"></use></svg></a></li>
+                            <li><a href="mailto:vanegasarrietajuandiego@gmail.com" aria-label="Correo" data-en-aria-label="Email"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#mail"></use></svg></a></li>
+                        </ul>
                     </div>
                 </div>
-            </div>
 
-            <div class="container">
-                <dl class="hero-stats">
-                    <div class="stat">
-                        <dt data-en="Years coding">Años programando</dt>
-                        <dd>10+</dd>
+                <figure class="hero-main" data-crossfade>
+                    <div class="hero-frame" data-open data-parallax="-6">
+                        <img class="is-current" src="static/img/photos/clase-python-sm.webp" srcset="static/img/photos/clase-python-sm.webp 720w, static/img/photos/clase-python.webp 900w" sizes="(min-width: 1024px) 32vw, 78vw" width="720" height="960" alt="Juan explicando código Python frente a un grupo de estudiantes" data-en-alt="Juan explaining Python code to a group of students" data-caption="Enseñando Python" data-en-caption="Teaching Python" fetchpriority="high" decoding="async">
+                        <img src="static/img/photos/normun-debate-sm.webp" width="675" height="1200" alt="Juan de traje dirigiendo el debate en el modelo NORMUN" data-en-alt="Juan in a suit leading the debate at NORMUN" data-caption="Presidiendo NORMUN" data-en-caption="Chairing NORMUN" decoding="async" fetchpriority="low" style="object-position: 50% 22%">
+                        <img src="static/img/photos/hackaton-cursor-2026-ganadores-sm.webp" srcset="static/img/photos/hackaton-cursor-2026-ganadores-sm.webp 720w, static/img/photos/hackaton-cursor-2026-ganadores.webp 960w" sizes="(min-width: 1024px) 32vw, 78vw" width="720" height="960" alt="Juan con su premio como ganador de la hackatón de SpaceX, Cursor y Grok" data-en-alt="Juan with his prize as a winner of the SpaceX, Cursor and Grok hackathon" data-caption="Ganador de la hackatón de SpaceX, Cursor y Grok" data-en-caption="Winner of the SpaceX, Cursor and Grok hackathon" decoding="async" fetchpriority="low">
+                        <img src="static/img/photos/semillero-stand-sm.webp" srcset="static/img/photos/semillero-stand-sm.webp 720w, static/img/photos/semillero-stand.webp 900w" sizes="(min-width: 1024px) 32vw, 78vw" width="720" height="960" alt="Juan mostrando ¡Viva el Carnaval! en un portátil durante la feria" data-en-alt="Juan showing ¡Viva el Carnaval! on a laptop at the fair" data-caption="¡Viva el Carnaval! en la Feria de Semilleros" data-en-caption="¡Viva el Carnaval! at the seedbed fair" decoding="async" fetchpriority="low" style="object-position: 60% 40%">
                     </div>
-                    <div class="stat">
-                        <dt data-en="Clients served">Clientes atendidos</dt>
-                        <dd>5</dd>
-                    </div>
-                    <div class="stat">
-                        <dt data-en="Hackathons among the winners">Hackatones entre los ganadores</dt>
-                        <dd>3</dd>
-                    </div>
-                    <div class="stat">
-                        <dt data-en="Model UN conferences">Modelos de Naciones Unidas</dt>
-                        <dd>5</dd>
-                    </div>
-                </dl>
+                    <figcaption class="hero-caption" data-load style="--d:900ms">
+                        <span class="hero-caption-text">Enseñando Python</span>
+                        <span class="hero-dots" aria-hidden="true"><i class="is-current"></i><i></i><i></i><i></i></span>
+                    </figcaption>
+                </figure>
+
+                <figure class="hero-small" data-open data-parallax="10">
+                    <img src="static/img/photos/hackaton-2026-premiacion-sm.webp" width="720" height="540" alt="Juan con su certificado en la Hackatón BAQ 2026" data-en-alt="Juan holding his certificate at Hackatón BAQ 2026" decoding="async">
+                    <figcaption>Hackatón BAQ 2026</figcaption>
+                </figure>
             </div>
         </section>
 
         <!-- ===================== SOBRE MÍ ===================== -->
-        <section class="section" id="sobre-mi" aria-labelledby="about-title">
-            <div class="container">
-                <header class="section-head reveal">
-                    <p class="eyebrow"><span class="eyebrow-num">01</span><span data-en="About me">Sobre mí</span></p>
-                    <h2 class="section-title" id="about-title" data-en="Over a decade of writing code">Más de una década escribiendo código</h2>
-                </header>
+        <section class="section about" id="sobre-mi" aria-labelledby="about-title">
+            <div class="wrap">
+                <h2 class="section-title" id="about-title" data-split data-en="Over a decade of writing code">Más de una década escribiendo código</h2>
 
                 <div class="about-grid">
-                    <div class="about-text reveal">
-                        <p data-en-html="I'm &lt;strong&gt;Juan Vanegas&lt;/strong&gt;, a 16-year-old developer from Barranquilla, Colombia. I wrote my first lines of code at 6 and never stopped — over a decade of learning, breaking things and building them back up.">
-                            Soy <strong>Juan Vanegas</strong>, desarrollador de 16 años de Barranquilla, Colombia. Escribí mis primeras líneas de código a los 6 años y no he parado: más de una década aprendiendo, rompiendo cosas y volviéndolas a armar.
-                        </p>
-                        <p data-en-html="About two years ago I jumped from personal projects to real work: since then I've delivered &lt;strong&gt;commissioned software to schools and businesses&lt;/strong&gt;. My strong suit is backend, web apps and, above all, &lt;strong&gt;automated solutions built around AI agents&lt;/strong&gt;.">
-                            Hace unos dos años di el salto de los proyectos personales al trabajo real: desde entonces he entregado <strong>software por encargo a instituciones y negocios</strong>. Mi fuerte es el backend, las aplicaciones web y, sobre todo, las <strong>soluciones automatizadas con agentes de IA</strong>.
-                        </p>
-                        <p data-en-html="I run &lt;strong&gt;nodo.dev&lt;/strong&gt;, where I help businesses get rid of repetitive work, and I lead the &lt;strong&gt;Crack The Code research seedbed&lt;/strong&gt; at Escuela Normal Superior del Distrito de Barranquilla. When I'm not building, I make content about programming and AI.">
-                            Dirijo <strong>nodo.dev</strong>, donde ayudo a los negocios a quitarse de encima el trabajo repetitivo, y lidero el <strong>semillero de investigación Crack The Code</strong> en la Escuela Normal Superior del Distrito de Barranquilla. Cuando no estoy construyendo, creo contenido sobre programación e IA.
-                        </p>
-                        <ul class="about-facts">
-                            <li class="fact"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#map-pin"></use></svg>Barranquilla, Colombia</li>
-                            <li class="fact"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#graduation-cap"></use></svg>Escuela Normal Superior del Distrito</li>
-                            <li class="fact"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#bot"></use></svg><span data-en="AI agents">Agentes de IA</span></li>
-                            <li class="fact"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#code-xml"></use></svg><span data-en="Backend &amp; web apps">Backend y apps web</span></li>
+                    <aside class="about-aside" data-reveal-group>
+                        <dl class="about-stats">
+                            <div class="stat" data-reveal>
+                                <dt data-en="Years coding">Años programando</dt>
+                                <dd><span data-count="10">10</span>+</dd>
+                            </div>
+                            <div class="stat" data-reveal>
+                                <dt data-en="Clients served">Clientes atendidos</dt>
+                                <dd><span data-count="5">5</span></dd>
+                            </div>
+                            <div class="stat" data-reveal>
+                                <dt data-en="Hackathons among the winners">Hackatones entre los ganadores</dt>
+                                <dd><span data-count="3">3</span></dd>
+                            </div>
+                            <div class="stat" data-reveal>
+                                <dt data-en="Model UN conferences">Modelos de Naciones Unidas</dt>
+                                <dd><span data-count="5">5</span></dd>
+                            </div>
+                        </dl>
+                        <ul class="about-facts" data-reveal>
+                            <li><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#map-pin"></use></svg>Barranquilla, Colombia</li>
+                            <li><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#graduation-cap"></use></svg>Escuela Normal Superior del Distrito</li>
+                            <li><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#bot"></use></svg><span data-en="AI agents">Agentes de IA</span></li>
+                            <li><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#code-xml"></use></svg><span data-en="Backend &amp; web apps">Backend y apps web</span></li>
                         </ul>
-                    </div>
+                    </aside>
 
-                    <aside class="stack-card reveal" aria-labelledby="stack-title">
-                        <h3 class="card-kicker" id="stack-title" data-en="My stack">Mi stack</h3>
-                        <div class="stack-group">
+                    <div class="about-body" data-reveal-group>
+                        <div class="about-statement" data-reveal>
+                            <img class="about-portrait" src="static/img/photos/hackaton-2026-programando-sm.webp" width="720" height="960" alt="Juan programando en un computador durante la Hackatón BAQ 2026" data-en-alt="Juan coding on a computer at Hackatón BAQ 2026" loading="lazy" decoding="async">
+                            <p data-en-html="I'm &lt;strong&gt;Juan Vanegas&lt;/strong&gt;, a 16-year-old developer from Barranquilla, Colombia. I wrote my first lines of code at 6 and never stopped — over a decade of learning, breaking things and building them back up.">
+                                Soy <strong>Juan Vanegas</strong>, desarrollador de 16 años de Barranquilla, Colombia. Escribí mis primeras líneas de código a los 6 años y no he parado: más de una década aprendiendo, rompiendo cosas y volviéndolas a armar.
+                            </p>
+                        </div>
+                        <div class="about-cols">
+                            <p data-reveal data-en-html="About two years ago I jumped from personal projects to real work: since then I've delivered &lt;strong&gt;commissioned software to schools and businesses&lt;/strong&gt;. My strong suit is backend, web apps and, above all, &lt;strong&gt;automated solutions built around AI agents&lt;/strong&gt;.">
+                                Hace unos dos años di el salto de los proyectos personales al trabajo real: desde entonces he entregado <strong>software por encargo a instituciones y negocios</strong>. Mi fuerte es el backend, las aplicaciones web y, sobre todo, las <strong>soluciones automatizadas con agentes de IA</strong>.
+                            </p>
+                            <p data-reveal data-en-html="I run &lt;strong&gt;nodo.dev&lt;/strong&gt;, where I help businesses get rid of repetitive work, and I lead the &lt;strong&gt;Crack The Code research seedbed&lt;/strong&gt; at Escuela Normal Superior del Distrito de Barranquilla. When I'm not building, I make content about programming and AI.">
+                                Dirijo <strong>nodo.dev</strong>, donde ayudo a los negocios a quitarse de encima el trabajo repetitivo, y lidero el <strong>semillero de investigación Crack The Code</strong> en la Escuela Normal Superior del Distrito de Barranquilla. Cuando no estoy construyendo, creo contenido sobre programación e IA.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="stack" aria-labelledby="stack-title">
+                    <h3 class="stack-title" id="stack-title" data-split data-en="My stack">Mi stack</h3>
+                    <div class="stack-groups" data-reveal-group>
+                        <div class="stack-group" data-reveal>
                             <h4 data-en="Languages">Lenguajes</h4>
                             <ul class="tech-list">
                                 <li><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#python"></use></svg>Python</li>
                                 <li><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#javascript"></use></svg>JavaScript</li>
-                                <li>C#</li>
+                                <li><span class="icon icon-text" aria-hidden="true">C#</span>C#</li>
                                 <li><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#database"></use></svg>SQL</li>
                                 <li><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#cplusplus"></use></svg>C++</li>
                                 <li><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#lua"></use></svg>Lua</li>
@@ -245,7 +225,7 @@
                                 <li><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#css"></use></svg>CSS</li>
                             </ul>
                         </div>
-                        <div class="stack-group">
+                        <div class="stack-group" data-reveal>
                             <h4 data-en="Frameworks &amp; engines">Frameworks y motores</h4>
                             <ul class="tech-list">
                                 <li><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#react"></use></svg>React</li>
@@ -257,7 +237,7 @@
                                 <li><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#unity"></use></svg>Unity</li>
                             </ul>
                         </div>
-                        <div class="stack-group">
+                        <div class="stack-group" data-reveal>
                             <h4 data-en="AI &amp; automation">IA y automatización</h4>
                             <ul class="tech-list">
                                 <li><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#bot"></use></svg><span data-en="AI agents">Agentes de IA</span></li>
@@ -268,7 +248,7 @@
                                 <li><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#whatsapp"></use></svg>WhatsApp</li>
                             </ul>
                         </div>
-                        <div class="stack-group">
+                        <div class="stack-group" data-reveal>
                             <h4 data-en="Data &amp; tools">Datos y herramientas</h4>
                             <ul class="tech-list">
                                 <li><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#mysql"></use></svg>MySQL</li>
@@ -279,271 +259,246 @@
                                 <li><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#netlify"></use></svg>Netlify</li>
                             </ul>
                         </div>
-                    </aside>
-                </div>
+                    </div>
+                </section>
             </div>
         </section>
 
         <!-- ===================== PROYECTOS ===================== -->
-        <section class="section section-alt" id="proyectos" aria-labelledby="projects-title">
-            <div class="container">
-                <header class="section-head reveal">
-                    <p class="eyebrow"><span class="eyebrow-num">02</span><span data-en="Projects">Proyectos</span></p>
-                    <h2 class="section-title" id="projects-title" data-en-html="Things I've built, &lt;em&gt;several in real use&lt;/em&gt;">Cosas que he construido, <em>varias en uso real</em></h2>
-                    <p class="section-lead" data-en="From an educational game to commissioned systems for schools and companies.">Desde un videojuego educativo hasta sistemas por encargo para colegios y empresas.</p>
+        <section class="section work" id="proyectos" aria-labelledby="projects-title">
+            <div class="wrap">
+                <header class="section-head">
+                    <h2 class="section-title" id="projects-title" data-split data-en="Things I've built">Cosas que he construido</h2>
+                    <p class="section-lead" data-reveal data-en="Several are in real use: from an educational game to commissioned systems for schools and companies.">Varias están en uso real: desde un videojuego educativo hasta sistemas por encargo para colegios y empresas.</p>
                 </header>
 
-                <div class="projects-featured">
+                <div class="work-stage" data-stage>
+                    <div class="work-list">
 
-                    <!-- ¡Viva el Carnaval! -->
-                    <article class="project project-wide reveal">
-                        <a class="project-media" href="#juego" tabindex="-1" aria-hidden="true">
-                            <img src="static/img/projects/viva-carnaval-sm.webp" width="720" height="405" alt="" loading="lazy" decoding="async">
-                            <span class="media-pill">
-                                <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#gamepad-2"></use></svg>
-                                <span data-en="Play it here">Juégalo aquí</span>
-                            </span>
-                        </a>
-                        <div class="project-body">
-                            <div class="project-meta">
-                                <span class="badge tone-cyan" data-en="Playable">Jugable</span>
-                                <span class="project-type" data-en="Educational game · Unity">Videojuego educativo · Unity</span>
+                        <!-- ¡Viva el Carnaval! -->
+                        <article class="work-item" data-stage-item>
+                            <a class="work-media" href="#juego" tabindex="-1" aria-hidden="true">
+                                <span class="work-pic"><img src="static/img/projects/viva-carnaval-sm.webp" srcset="static/img/projects/viva-carnaval-sm.webp 720w, static/img/projects/viva-carnaval.webp 1280w" sizes="(min-width: 1024px) 56vw, 100vw" width="720" height="405" alt="" loading="lazy" decoding="async"></span>
+                                <span class="work-cap"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#gamepad-2"></use></svg><span data-en="Play it here">Juégalo aquí</span></span>
+                            </a>
+                            <div class="work-body">
+                                <h3 class="work-title">¡Viva el Carnaval!</h3>
+                                <p class="work-meta"><span class="status"><span class="status-dot" aria-hidden="true"></span><span data-en="Playable">Jugable</span></span><span data-en="Educational game · Unity">Videojuego educativo · Unity</span></p>
+                                <p class="work-desc" data-en="2D game that teaches computational thinking to 8–11 year-olds through the Barranquilla Carnival. Kids build arrow sequences to guide Karlitos across the Paseo Bolívar, and the Wise Marimonda explains every mistake. We built it in Unity with the Crack The Code seedbed; level 1 is ported to the web right here.">Videojuego 2D que enseña pensamiento computacional a niños de 8 a 11 años usando el Carnaval de Barranquilla. Los niños arman secuencias de flechas para guiar a Karlitos por el Paseo Bolívar y la Marimonda Sabia les explica cada error. Lo hicimos en Unity con el semillero Crack The Code; el primer nivel está portado a la web aquí mismo.</p>
+                                <ul class="tags"><li>Unity</li><li>C#</li><li>Game design</li><li>JavaScript</li></ul>
+                                <div class="work-links">
+                                    <a class="btn btn-primary btn-sm" href="#juego">
+                                        <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#gamepad-2"></use></svg>
+                                        <span data-en="Play level 1">Jugar nivel 1</span>
+                                    </a>
+                                    <a class="text-link" href="https://github.com/Juandi0127/VivaCarnval" target="_blank" rel="noopener">
+                                        <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#github"></use></svg>
+                                        <span data-en="Source code">Código</span>
+                                    </a>
+                                </div>
                             </div>
-                            <h3 class="project-title">¡Viva el Carnaval!</h3>
-                            <p class="project-desc" data-en="2D game that teaches computational thinking to 8–11 year-olds through the Barranquilla Carnival. Kids build arrow sequences to guide Karlitos across the Paseo Bolívar, and the Wise Marimonda explains every mistake. We built it in Unity with the Crack The Code seedbed; level 1 is ported to the web right here.">Videojuego 2D que enseña pensamiento computacional a niños de 8 a 11 años usando el Carnaval de Barranquilla. Los niños arman secuencias de flechas para guiar a Karlitos por el Paseo Bolívar y la Marimonda Sabia les explica cada error. Lo hicimos en Unity con el semillero Crack The Code; el primer nivel está portado a la web aquí mismo.</p>
-                            <ul class="tags"><li>Unity</li><li>C#</li><li>Game design</li><li>JavaScript</li></ul>
-                            <div class="project-links">
-                                <a class="btn btn-primary btn-sm" href="#juego">
-                                    <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#gamepad-2"></use></svg>
-                                    <span data-en="Play level 1">Jugar nivel 1</span>
-                                </a>
-                                <a class="btn btn-ghost btn-sm" href="https://github.com/Juandi0127/VivaCarnval" target="_blank" rel="noopener">
-                                    <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#github"></use></svg>
-                                    <span data-en="Source code">Código</span>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
+                        </article>
 
-                    <!-- MIMADA Beauty -->
-                    <article class="project reveal">
-                        <a class="project-media browser" href="https://mimadabeauty.netlify.app/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-                            <span class="browser-bar"><i></i><i></i><i></i><span class="browser-url">mimadabeauty.netlify.app</span></span>
-                            <img src="static/img/projects/mimada-beauty-sm.webp" width="720" height="450" alt="" loading="lazy" decoding="async">
-                        </a>
-                        <div class="project-body">
-                            <div class="project-meta">
-                                <span class="badge tone-green badge-live" data-en="Live">En vivo</span>
-                                <span class="project-type" data-en="Online store · Client project">Tienda en línea · Por encargo</span>
+                        <!-- MIMADA Beauty -->
+                        <article class="work-item" data-stage-item>
+                            <a class="work-media" href="https://mimadabeauty.netlify.app/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                                <span class="work-pic"><img src="static/img/projects/mimada-beauty-sm.webp" srcset="static/img/projects/mimada-beauty-sm.webp 720w, static/img/projects/mimada-beauty.webp 1440w" sizes="(min-width: 1024px) 56vw, 100vw" width="720" height="450" alt="" loading="lazy" decoding="async"></span>
+                                <span class="work-cap"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#globe"></use></svg>mimadabeauty.netlify.app</span>
+                            </a>
+                            <div class="work-body">
+                                <h3 class="work-title">MIMADA Beauty</h3>
+                                <p class="work-meta"><span class="status"><span class="status-dot" aria-hidden="true"></span><span data-en="Live">En vivo</span></span><span data-en="Online store · Client project">Tienda en línea · Por encargo</span></p>
+                                <p class="work-desc" data-en="Online makeup store from Barranquilla with shipping across Colombia. Shoppers browse a catalog of about 880 products filtered by category, build their bag, fill in their details and the order arrives ready on WhatsApp. The catalog is generated automatically from the store's PDF.">Tienda virtual de maquillaje de Barranquilla con envíos a todo Colombia. Las clientas exploran un catálogo de unos 880 productos con filtros por categoría, arman su bolsa, llenan sus datos y el pedido llega listo por WhatsApp. El catálogo se genera automáticamente a partir del PDF de la tienda.</p>
+                                <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Python</li><li>WhatsApp</li></ul>
+                                <div class="work-links">
+                                    <a class="btn btn-primary btn-sm" href="https://mimadabeauty.netlify.app/" target="_blank" rel="noopener">
+                                        <span data-en="Visit store">Ver tienda</span>
+                                        <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#arrow-up-right"></use></svg>
+                                    </a>
+                                </div>
                             </div>
-                            <h3 class="project-title">MIMADA Beauty</h3>
-                            <p class="project-desc" data-en="Online makeup store from Barranquilla with shipping across Colombia. Shoppers browse a catalog of about 880 products filtered by category, build their bag, fill in their details and the order arrives ready on WhatsApp. The catalog is generated automatically from the store's PDF.">Tienda virtual de maquillaje de Barranquilla con envíos a todo Colombia. Las clientas exploran un catálogo de unos 880 productos con filtros por categoría, arman su bolsa, llenan sus datos y el pedido llega listo por WhatsApp. El catálogo se genera automáticamente a partir del PDF de la tienda.</p>
-                            <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Python</li><li>WhatsApp</li></ul>
-                            <div class="project-links">
-                                <a class="btn btn-primary btn-sm" href="https://mimadabeauty.netlify.app/" target="_blank" rel="noopener">
-                                    <span data-en="Visit store">Ver tienda</span>
-                                    <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#arrow-up-right"></use></svg>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
+                        </article>
 
-                    <!-- Kodo -->
-                    <article class="project reveal">
-                        <a class="project-media browser" href="https://kodo-app.netlify.app/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-                            <span class="browser-bar"><i></i><i></i><i></i><span class="browser-url">kodo-app.netlify.app</span></span>
-                            <img src="static/img/projects/kodo-sm.webp" width="720" height="450" alt="" loading="lazy" decoding="async">
-                        </a>
-                        <div class="project-body">
-                            <div class="project-meta">
-                                <span class="badge tone-green badge-live" data-en="Live">En vivo</span>
-                                <span class="project-type" data-en="Learning platform · Free">Plataforma educativa · Gratis</span>
+                        <!-- Kodo -->
+                        <article class="work-item" data-stage-item>
+                            <a class="work-media" href="https://kodo-app.netlify.app/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                                <span class="work-pic"><img src="static/img/projects/kodo-sm.webp" srcset="static/img/projects/kodo-sm.webp 720w, static/img/projects/kodo.webp 1440w" sizes="(min-width: 1024px) 56vw, 100vw" width="720" height="450" alt="" loading="lazy" decoding="async"></span>
+                                <span class="work-cap"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#globe"></use></svg>kodo-app.netlify.app</span>
+                            </a>
+                            <div class="work-body">
+                                <h3 class="work-title">Kodo</h3>
+                                <p class="work-meta"><span class="status"><span class="status-dot" aria-hidden="true"></span><span data-en="Live">En vivo</span></span><span data-en="Learning platform · Free">Plataforma educativa · Gratis</span></p>
+                                <p class="work-desc" data-en="Free platform to learn Python from scratch in the browser, with nothing to install. It opens with five code-free logic lessons (where almost everyone gets stuck) and then unlocks 11 Python units with a free terminal, instant feedback and a daily XP goal.">Plataforma gratuita para aprender Python desde cero en el navegador, sin instalar nada. Empieza con cinco lecciones de lógica sin código, donde se atasca casi todo el mundo, y luego desbloquea 11 unidades de Python con terminal libre, corrección instantánea y meta diaria de XP.</p>
+                                <ul class="tags"><li>JavaScript</li><li>HTML</li><li>CSS</li><li>Netlify</li></ul>
+                                <div class="work-links">
+                                    <a class="btn btn-primary btn-sm" href="https://kodo-app.netlify.app/" target="_blank" rel="noopener">
+                                        <span data-en="Start learning">Empezar a aprender</span>
+                                        <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#arrow-up-right"></use></svg>
+                                    </a>
+                                </div>
                             </div>
-                            <h3 class="project-title">Kodo</h3>
-                            <p class="project-desc" data-en="Free platform to learn Python from scratch in the browser, with nothing to install. It opens with five code-free logic lessons (where almost everyone gets stuck) and then unlocks 11 Python units with a free terminal, instant feedback and a daily XP goal.">Plataforma gratuita para aprender Python desde cero en el navegador, sin instalar nada. Empieza con cinco lecciones de lógica sin código, donde se atasca casi todo el mundo, y luego desbloquea 11 unidades de Python con terminal libre, corrección instantánea y meta diaria de XP.</p>
-                            <ul class="tags"><li>JavaScript</li><li>HTML</li><li>CSS</li><li>Netlify</li></ul>
-                            <div class="project-links">
-                                <a class="btn btn-primary btn-sm" href="https://kodo-app.netlify.app/" target="_blank" rel="noopener">
-                                    <span data-en="Start learning">Empezar a aprender</span>
-                                    <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#arrow-up-right"></use></svg>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
+                        </article>
 
-                    <!-- NORMUN -->
-                    <article class="project reveal">
-                        <a class="project-media browser" href="https://normun.site/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-                            <span class="browser-bar"><i></i><i></i><i></i><span class="browser-url">normun.site</span></span>
-                            <img src="static/img/projects/normun-sm.webp" width="720" height="450" alt="" loading="lazy" decoding="async">
-                        </a>
-                        <div class="project-body">
-                            <div class="project-meta">
-                                <span class="badge tone-green badge-live" data-en="Live">En vivo</span>
-                                <span class="project-type" data-en="Commissioned website">Sitio web por encargo</span>
+                        <!-- NORMUN -->
+                        <article class="work-item" data-stage-item>
+                            <a class="work-media" href="https://normun.site/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                                <span class="work-pic"><img src="static/img/projects/normun-sm.webp" srcset="static/img/projects/normun-sm.webp 720w, static/img/projects/normun.webp 1440w" sizes="(min-width: 1024px) 56vw, 100vw" width="720" height="450" alt="" loading="lazy" decoding="async"></span>
+                                <span class="work-cap"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#globe"></use></svg>normun.site</span>
+                            </a>
+                            <div class="work-body">
+                                <h3 class="work-title">NORMUN</h3>
+                                <p class="work-meta"><span class="status"><span class="status-dot" aria-hidden="true"></span><span data-en="Live">En vivo</span></span><span data-en="Commissioned website">Sitio web por encargo</span></p>
+                                <p class="work-desc" data-en="Official site of the Model United Nations at Escuela Normal Superior del Distrito. It presents the six committees, the chair roles, the rules of procedure and the official documents, and takes sign-ups from students who want to be delegates — the same model I chair.">Sitio oficial del Modelo de Naciones Unidas de la Escuela Normal Superior del Distrito. Presenta las seis comisiones, los roles de mesa, el reglamento y los documentos oficiales, y recibe las inscripciones de quienes quieren ser delegados: el mismo modelo que presido.</p>
+                                <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+                                <div class="work-links">
+                                    <a class="btn btn-primary btn-sm" href="https://normun.site/" target="_blank" rel="noopener">
+                                        <span data-en="Visit site">Ver sitio</span>
+                                        <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#arrow-up-right"></use></svg>
+                                    </a>
+                                </div>
                             </div>
-                            <h3 class="project-title">NORMUN</h3>
-                            <p class="project-desc" data-en="Official site of the Model United Nations at Escuela Normal Superior del Distrito. It presents the six committees, the chair roles, the rules of procedure and the official documents, and takes sign-ups from students who want to be delegates — the same model I chair.">Sitio oficial del Modelo de Naciones Unidas de la Escuela Normal Superior del Distrito. Presenta las seis comisiones, los roles de mesa, el reglamento y los documentos oficiales, y recibe las inscripciones de quienes quieren ser delegados: el mismo modelo que presido.</p>
-                            <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
-                            <div class="project-links">
-                                <a class="btn btn-primary btn-sm" href="https://normun.site/" target="_blank" rel="noopener">
-                                    <span data-en="Visit site">Ver sitio</span>
-                                    <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#arrow-up-right"></use></svg>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
+                        </article>
 
-                    <!-- Biblioteca ENSDB -->
-                    <article class="project reveal">
-                        <a class="project-media browser" href="static/img/projects/ensdb-login.webp" data-gallery="ensdb" data-caption="Biblioteca ENSDB: inicio de sesión con correo institucional" data-en-caption="ENSDB Library: sign-in with school email">
-                            <span class="browser-bar"><i></i><i></i><i></i><span class="browser-url">ensdblibrary.online</span></span>
-                            <img src="static/img/projects/ensdb-login-sm.webp" width="720" height="450" alt="Pantalla de inicio de sesión de la Biblioteca ENSDB" data-en-alt="ENSDB Library sign-in screen" loading="lazy" decoding="async">
-                            <span class="media-pill">
-                                <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#images"></use></svg>
-                                <span data-en="4 screenshots">4 capturas</span>
-                            </span>
-                        </a>
-                        <a href="static/img/projects/ensdb-catalogo.webp" data-gallery="ensdb" data-caption="Catálogo: libros más populares y mejor calificados" data-en-caption="Catalog: most popular and top-rated books" hidden></a>
-                        <a href="static/img/projects/ensdb-busqueda.webp" data-gallery="ensdb" data-caption="Búsqueda en la biblioteca virtual" data-en-caption="Searching the virtual library" hidden></a>
-                        <a href="static/img/projects/ensdb-admin.webp" data-gallery="ensdb" data-caption="Panel de administración" data-en-caption="Admin panel" hidden></a>
-                        <div class="project-body">
-                            <div class="project-meta">
-                                <span class="badge tone-green badge-live" data-en="Live">En vivo</span>
-                                <span class="project-type" data-en="Commissioned full-stack system">Sistema full stack por encargo</span>
+                        <!-- Biblioteca ENSDB -->
+                        <article class="work-item" data-stage-item>
+                            <a class="work-media" href="static/img/projects/ensdb-login.webp" data-gallery="ensdb" data-caption="Biblioteca ENSDB: inicio de sesión con correo institucional" data-en-caption="ENSDB Library: sign-in with school email">
+                                <span class="work-pic"><img src="static/img/projects/ensdb-login-sm.webp" srcset="static/img/projects/ensdb-login-sm.webp 720w, static/img/projects/ensdb-login.webp 1440w" sizes="(min-width: 1024px) 56vw, 100vw" width="720" height="450" alt="Pantalla de inicio de sesión de la Biblioteca ENSDB" data-en-alt="ENSDB Library sign-in screen" loading="lazy" decoding="async"></span>
+                                <span class="work-cap"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#images"></use></svg>ensdblibrary.online · <span data-en="4 screenshots">4 capturas</span></span>
+                            </a>
+                            <a href="static/img/projects/ensdb-catalogo.webp" data-gallery="ensdb" data-caption="Catálogo: libros más populares y mejor calificados" data-en-caption="Catalog: most popular and top-rated books" hidden></a>
+                            <a href="static/img/projects/ensdb-busqueda.webp" data-gallery="ensdb" data-caption="Búsqueda en la biblioteca virtual" data-en-caption="Searching the virtual library" hidden></a>
+                            <a href="static/img/projects/ensdb-admin.webp" data-gallery="ensdb" data-caption="Panel de administración" data-en-caption="Admin panel" hidden></a>
+                            <div class="work-body">
+                                <h3 class="work-title" data-en="ENSDB Library">Biblioteca ENSDB</h3>
+                                <p class="work-meta"><span class="status"><span class="status-dot" aria-hidden="true"></span><span data-en="Live">En vivo</span></span><span data-en="Commissioned full-stack system">Sistema full stack por encargo</span></p>
+                                <p class="work-desc" data-en="Virtual library for Escuela Normal Superior del Distrito de Barranquilla: a full-stack solution to manage books, users and loans, with a digital catalog, search and an admin panel.">Biblioteca virtual de la Escuela Normal Superior del Distrito de Barranquilla: una solución full stack para gestionar libros, usuarios y préstamos, con catálogo digital, búsqueda y panel de administración.</p>
+                                <ul class="tags"><li>Python</li><li>Flask</li><li>MySQL</li><li>JavaScript</li></ul>
+                                <div class="work-links">
+                                    <a class="btn btn-primary btn-sm" href="https://www.ensdblibrary.online" target="_blank" rel="noopener">
+                                        <span data-en="Visit site">Ver sitio</span>
+                                        <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#arrow-up-right"></use></svg>
+                                    </a>
+                                    <button class="text-link" type="button" data-gallery-open="ensdb">
+                                        <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#images"></use></svg>
+                                        <span data-en="Screenshots">Ver capturas</span>
+                                    </button>
+                                </div>
                             </div>
-                            <h3 class="project-title" data-en="ENSDB Library">Biblioteca ENSDB</h3>
-                            <p class="project-desc" data-en="Virtual library for Escuela Normal Superior del Distrito de Barranquilla: a full-stack solution to manage books, users and loans, with a digital catalog, search and an admin panel.">Biblioteca virtual de la Escuela Normal Superior del Distrito de Barranquilla: una solución full stack para gestionar libros, usuarios y préstamos, con catálogo digital, búsqueda y panel de administración.</p>
-                            <ul class="tags"><li>Python</li><li>Flask</li><li>MySQL</li><li>JavaScript</li></ul>
-                            <div class="project-links">
-                                <a class="btn btn-primary btn-sm" href="https://www.ensdblibrary.online" target="_blank" rel="noopener">
-                                    <span data-en="Visit site">Ver sitio</span>
-                                    <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#arrow-up-right"></use></svg>
-                                </a>
-                                <button class="btn btn-ghost btn-sm" type="button" data-gallery-open="ensdb">
-                                    <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#images"></use></svg>
-                                    <span data-en="Screenshots">Ver capturas</span>
-                                </button>
-                            </div>
-                        </div>
-                    </article>
+                        </article>
+                    </div>
+                    <div class="work-frame" aria-hidden="true"></div>
                 </div>
 
-                <h3 class="subsection-title reveal" data-en="More projects">Más proyectos</h3>
+                <!-- Más proyectos -->
+                <section class="more" aria-labelledby="more-title">
+                    <h3 class="more-title" id="more-title" data-split data-en="More projects">Más proyectos</h3>
 
-                <div class="projects-grid">
-
-                    <!-- JX -->
-                    <article class="project project-sm reveal">
-                        <a class="project-media" href="static/img/projects/jx-asistente.webp" data-gallery="jx" data-caption="JX: interfaz del asistente de voz" data-en-caption="JX: voice assistant interface">
-                            <img src="static/img/projects/jx-asistente-sm.webp" width="720" height="450" alt="Interfaz de JX, el asistente de voz con IA" data-en-alt="JX, the AI voice assistant interface" loading="lazy" decoding="async">
-                        </a>
-                        <div class="project-body">
-                            <div class="project-meta">
-                                <span class="badge tone-violet" data-en="Personal">Personal</span>
+                    <ul class="more-list">
+                        <!-- JX -->
+                        <li class="more-item" data-reveal-group>
+                            <a class="more-media" href="static/img/projects/jx-asistente.webp" data-gallery="jx" data-caption="JX: interfaz del asistente de voz" data-en-caption="JX: voice assistant interface" data-reveal="pic">
+                                <img src="static/img/projects/jx-asistente-sm.webp" width="720" height="450" alt="Interfaz de JX, el asistente de voz con IA" data-en-alt="JX, the AI voice assistant interface" loading="lazy" decoding="async">
+                            </a>
+                            <div class="more-head" data-reveal>
+                                <h4 class="more-name" data-en="JX — AI assistant">JX — Asistente con IA</h4>
+                                <p class="more-kind" data-en="Personal">Personal</p>
                             </div>
-                            <h4 class="project-title" data-en="JX — AI assistant">JX — Asistente con IA</h4>
-                            <p class="project-desc" data-en="My voice assistant. It listens through the mic, answers with a local Llama model, manages reminders, controls my computer and integrates Google APIs like Maps and Gmail — all running locally.">Mi asistente de voz. Escucha por micrófono, responde con un modelo Llama local, gestiona recordatorios, controla mi computador e integra APIs de Google como Maps y Gmail. Todo corre en local.</p>
-                            <ul class="tags"><li>Python</li><li>Llama</li><li>Google APIs</li></ul>
-                        </div>
-                    </article>
-
-                    <!-- HaxSuite -->
-                    <article class="project project-sm reveal">
-                        <a class="project-media" href="static/img/projects/haxsuite-inicio.webp" data-gallery="haxsuite" data-caption="HaxSuite: inicio" data-en-caption="HaxSuite: home">
-                            <img src="static/img/projects/haxsuite-inicio-sm.webp" width="720" height="333" alt="Página de inicio de HaxSuite" data-en-alt="HaxSuite home page" loading="lazy" decoding="async">
-                            <span class="media-pill">
-                                <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#images"></use></svg>
-                                <span data-en="4 screenshots">4 capturas</span>
-                            </span>
-                        </a>
-                        <a href="static/img/projects/haxsuite-goleadores.webp" data-gallery="haxsuite" data-caption="HaxSuite: top 10 de goleadores" data-en-caption="HaxSuite: top 10 scorers" hidden></a>
-                        <a href="static/img/projects/haxsuite-repeticiones.webp" data-gallery="haxsuite" data-caption="HaxSuite: repeticiones (próximamente)" data-en-caption="HaxSuite: replays (coming soon)" hidden></a>
-                        <a href="static/img/projects/haxsuite-comunidad.webp" data-gallery="haxsuite" data-caption="HaxSuite: ligas, jugadores y comunidad" data-en-caption="HaxSuite: leagues, players and community" hidden></a>
-                        <div class="project-body">
-                            <div class="project-meta">
-                                <span class="badge tone-amber" data-en="Commissioned">Por encargo</span>
+                            <div class="more-body" data-reveal>
+                                <p class="more-desc" data-en="My voice assistant. It listens through the mic, answers with a local Llama model, manages reminders, controls my computer and integrates Google APIs like Maps and Gmail — all running locally.">Mi asistente de voz. Escucha por micrófono, responde con un modelo Llama local, gestiona recordatorios, controla mi computador e integra APIs de Google como Maps y Gmail. Todo corre en local.</p>
+                                <ul class="tags"><li>Python</li><li>Llama</li><li>Google APIs</li></ul>
                             </div>
-                            <h4 class="project-title">HaxSuite</h4>
-                            <p class="project-desc" data-en="Real-time stats site for a HaxBall football league: standings, top scorers, assists and replays.">Sitio de estadísticas en tiempo real para una liga de fútbol de HaxBall: tabla, goleadores, asistencias y repeticiones.</p>
-                            <ul class="tags"><li>Node.js</li><li>Express</li><li>MySQL</li></ul>
-                            <div class="project-links">
-                                <a class="btn btn-ghost btn-sm" href="https://discord.gg/DNxSYNpHf9" target="_blank" rel="noopener">
+                        </li>
+
+                        <!-- HaxSuite -->
+                        <li class="more-item" data-reveal-group>
+                            <a class="more-media" href="static/img/projects/haxsuite-inicio.webp" data-gallery="haxsuite" data-caption="HaxSuite: inicio" data-en-caption="HaxSuite: home" data-reveal="pic">
+                                <img src="static/img/projects/haxsuite-inicio-sm.webp" width="720" height="333" alt="Página de inicio de HaxSuite" data-en-alt="HaxSuite home page" loading="lazy" decoding="async">
+                                <span class="more-count"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#images"></use></svg><span data-en="4 screenshots">4 capturas</span></span>
+                            </a>
+                            <a href="static/img/projects/haxsuite-goleadores.webp" data-gallery="haxsuite" data-caption="HaxSuite: top 10 de goleadores" data-en-caption="HaxSuite: top 10 scorers" hidden></a>
+                            <a href="static/img/projects/haxsuite-repeticiones.webp" data-gallery="haxsuite" data-caption="HaxSuite: repeticiones (próximamente)" data-en-caption="HaxSuite: replays (coming soon)" hidden></a>
+                            <a href="static/img/projects/haxsuite-comunidad.webp" data-gallery="haxsuite" data-caption="HaxSuite: ligas, jugadores y comunidad" data-en-caption="HaxSuite: leagues, players and community" hidden></a>
+                            <div class="more-head" data-reveal>
+                                <h4 class="more-name">HaxSuite</h4>
+                                <p class="more-kind" data-en="Commissioned">Por encargo</p>
+                            </div>
+                            <div class="more-body" data-reveal>
+                                <p class="more-desc" data-en="Real-time stats site for a HaxBall football league: standings, top scorers, assists and replays.">Sitio de estadísticas en tiempo real para una liga de fútbol de HaxBall: tabla, goleadores, asistencias y repeticiones.</p>
+                                <ul class="tags"><li>Node.js</li><li>Express</li><li>MySQL</li></ul>
+                                <a class="text-link" href="https://discord.gg/DNxSYNpHf9" target="_blank" rel="noopener">
                                     <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#discord"></use></svg>
                                     Discord
                                 </a>
                             </div>
-                        </div>
-                    </article>
+                        </li>
 
-                    <!-- DG Market Bot -->
-                    <article class="project project-sm reveal">
-                        <div class="project-media mock-discord" aria-hidden="true">
-                            <div class="mock-msg">
-                                <span class="mock-avatar mock-avatar-user">C</span>
-                                <div>
-                                    <span class="mock-name" data-en="customer">cliente</span>
-                                    <p data-en="!order black-tshirt · size M">!pedido camiseta-negra · talla M</p>
+                        <!-- DG Market Bot -->
+                        <li class="more-item" data-reveal-group>
+                            <div class="more-media mock-discord" data-ui aria-hidden="true" data-reveal="rise">
+                                <div class="mock-msg">
+                                    <span class="mock-avatar mock-avatar-user">C</span>
+                                    <div>
+                                        <span class="mock-name" data-en="customer">cliente</span>
+                                        <p data-en="!order black-tshirt · size M">!pedido camiseta-negra · talla M</p>
+                                    </div>
+                                </div>
+                                <div class="mock-msg">
+                                    <span class="mock-avatar"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#bot"></use></svg></span>
+                                    <div>
+                                        <span class="mock-name">DG Market</span><span class="mock-bot">BOT</span>
+                                        <p class="mock-ok"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#check"></use></svg><span data-en="Order #1042 confirmed · stock updated">Pedido #1042 confirmado · stock actualizado</span></p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="mock-msg">
-                                <span class="mock-avatar"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#bot"></use></svg></span>
-                                <div>
-                                    <span class="mock-name">DG Market</span><span class="mock-bot">BOT</span>
-                                    <p data-en="✅ Order #1042 confirmed · stock updated">✅ Pedido #1042 confirmado · stock actualizado</p>
-                                </div>
+                            <div class="more-head" data-reveal>
+                                <h4 class="more-name">DG Market Bot</h4>
+                                <p class="more-kind" data-en="Commissioned">Por encargo</p>
                             </div>
-                        </div>
-                        <div class="project-body">
-                            <div class="project-meta">
-                                <span class="badge tone-amber" data-en="Commissioned">Por encargo</span>
-                            </div>
-                            <h4 class="project-title">DG Market Bot</h4>
-                            <p class="project-desc" data-en="Discord bot that fully runs an online store and its server: orders, inventory, users and automated workflows in about 5,000 lines of Python.">Bot de Discord que administra por completo una tienda en línea y su servidor: pedidos, inventario, usuarios y flujos automáticos en unas 5.000 líneas de Python.</p>
-                            <ul class="tags"><li>Python</li><li>Discord.py</li></ul>
-                            <div class="project-links">
-                                <a class="btn btn-ghost btn-sm" href="https://discord.com/oauth2/authorize?client_id=1393798481319165982" target="_blank" rel="noopener">
+                            <div class="more-body" data-reveal>
+                                <p class="more-desc" data-en="Discord bot that fully runs an online store and its server: orders, inventory, users and automated workflows in about 5,000 lines of Python.">Bot de Discord que administra por completo una tienda en línea y su servidor: pedidos, inventario, usuarios y flujos automáticos en unas 5.000 líneas de Python.</p>
+                                <ul class="tags"><li>Python</li><li>Discord.py</li></ul>
+                                <a class="text-link" href="https://discord.com/oauth2/authorize?client_id=1393798481319165982" target="_blank" rel="noopener">
                                     <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#discord"></use></svg>
                                     <span data-en="Add bot">Añadir bot</span>
                                 </a>
                             </div>
-                        </div>
-                    </article>
+                        </li>
 
-                    <!-- Pick The Right Color -->
-                    <article class="project project-sm reveal">
-                        <a class="project-media" href="https://www.roblox.com/es/games/110120511588833/Pick-The-Right-Color" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-                            <img src="static/img/projects/pick-the-right-color-sm.webp" width="512" height="432" alt="" loading="lazy" decoding="async">
-                        </a>
-                        <div class="project-body">
-                            <div class="project-meta">
-                                <span class="badge tone-green">Alpha</span>
+                        <!-- Pick The Right Color -->
+                        <li class="more-item" data-reveal-group>
+                            <a class="more-media" href="https://www.roblox.com/es/games/110120511588833/Pick-The-Right-Color" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" data-reveal="pic">
+                                <img src="static/img/projects/pick-the-right-color-sm.webp" width="512" height="432" alt="" loading="lazy" decoding="async">
+                            </a>
+                            <div class="more-head" data-reveal>
+                                <h4 class="more-name">Pick The Right Color</h4>
+                                <p class="more-kind">Alpha</p>
                             </div>
-                            <h4 class="project-title">Pick The Right Color</h4>
-                            <p class="project-desc" data-en="Roblox game built as a team in Lua: run to the right color before the platform disappears. Fast rounds, coins and a podium.">Juego de Roblox hecho en equipo con Lua: corre al color correcto antes de que desaparezca la plataforma. Rondas rápidas, monedas y podio.</p>
-                            <ul class="tags"><li>Lua</li><li>Roblox Studio</li></ul>
-                            <div class="project-links">
-                                <a class="btn btn-ghost btn-sm" href="https://www.roblox.com/es/games/110120511588833/Pick-The-Right-Color" target="_blank" rel="noopener">
+                            <div class="more-body" data-reveal>
+                                <p class="more-desc" data-en="Roblox game built as a team in Lua: run to the right color before the platform disappears. Fast rounds, coins and a podium.">Juego de Roblox hecho en equipo con Lua: corre al color correcto antes de que desaparezca la plataforma. Rondas rápidas, monedas y podio.</p>
+                                <ul class="tags"><li>Lua</li><li>Roblox Studio</li></ul>
+                                <a class="text-link" href="https://www.roblox.com/es/games/110120511588833/Pick-The-Right-Color" target="_blank" rel="noopener">
                                     <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#roblox"></use></svg>
                                     <span data-en="Play">Jugar</span>
                                 </a>
                             </div>
-                        </div>
-                    </article>
-                </div>
+                        </li>
+                    </ul>
+                </section>
             </div>
         </section>
 
         <!-- ===================== JUEGO ===================== -->
-        <section class="section" id="juego" aria-labelledby="game-title">
-            <div class="container">
-                <header class="section-head section-head-center reveal">
-                    <p class="eyebrow"><span class="eyebrow-num">03</span><span data-en="Play">Juega</span></p>
-                    <h2 class="section-title" id="game-title">¡Viva el Carnaval!</h2>
-                    <p class="section-lead" data-en="Level 1 — Sequences · Paseo Bolívar. Build the arrow sequence and press Run.">Nivel 1 — Secuencias · Paseo Bolívar. Arma la secuencia de flechas y pulsa Ejecutar.</p>
+        <section class="section game" id="juego" aria-labelledby="game-title">
+            <div class="wrap">
+                <header class="game-head">
+                    <h2 class="section-title" id="game-title" data-split>¡Viva el Carnaval!</h2>
+                    <div class="game-intro" data-reveal-group>
+                        <p class="section-lead" data-reveal data-en="Level 1 — Sequences · Paseo Bolívar. Build the arrow sequence and press Run.">Nivel 1 — Secuencias · Paseo Bolívar. Arma la secuencia de flechas y pulsa Ejecutar.</p>
+                        <p class="game-note" data-reveal data-en="Tip: tap a block in your sequence to delete just that one. Keyboard: arrow keys to add, Enter to run, Backspace to delete. This is a web port of level 1 — the full game runs in Unity.">Tip: toca un bloque de tu secuencia para borrar solo ese. Con teclado: flechas para agregar, Enter para ejecutar y Retroceso para borrar. Este es un port web del nivel 1; el juego completo corre en Unity.</p>
+                    </div>
                 </header>
 
-                <div class="vc reveal" id="carnavalGame" tabindex="0" role="group" aria-label="Juego ¡Viva el Carnaval!, nivel 1" data-en-aria-label="¡Viva el Carnaval! game, level 1">
+                <div class="vc" id="carnavalGame" data-ui data-reveal="rise" tabindex="0" role="group" aria-label="Juego ¡Viva el Carnaval!, nivel 1" data-en-aria-label="¡Viva el Carnaval! game, level 1">
 
                     <div class="vc-topbar">
                         <div class="vc-seq">
@@ -613,106 +568,90 @@
                         </div>
                     </div>
                 </div>
-
-                <p class="game-note reveal" data-en="Tip: tap a block in your sequence to delete just that one. Keyboard: arrow keys to add, Enter to run, Backspace to delete. This is a web port of level 1 — the full game runs in Unity.">Tip: toca un bloque de tu secuencia para borrar solo ese. Con teclado: flechas para agregar, Enter para ejecutar y Retroceso para borrar. Este es un port web del nivel 1; el juego completo corre en Unity.</p>
             </div>
         </section>
 
         <!-- ===================== LIDERAZGO ===================== -->
-        <section class="section section-alt" id="liderazgo" aria-labelledby="lead-title">
-            <div class="container">
-                <header class="section-head reveal">
-                    <p class="eyebrow"><span class="eyebrow-num">04</span><span data-en="Leadership &amp; community">Liderazgo y comunidad</span></p>
-                    <h2 class="section-title" id="lead-title" data-en="What I do beyond code">Lo que hago más allá del código</h2>
+        <section class="section lead" id="liderazgo" aria-labelledby="lead-title">
+            <div class="wrap">
+                <header class="section-head">
+                    <h2 class="section-title" id="lead-title" data-split data-en="What I do beyond code">Lo que hago más allá del código</h2>
+                    <p class="section-lead" data-reveal data-en="Leadership and community: a research seedbed, Model UN, hackathons, programming classes and videos about code.">Liderazgo y comunidad: un semillero de investigación, modelos de la ONU, hackatones, clases de programación y videos sobre código.</p>
                 </header>
 
-                <div class="lead-grid">
+                <!-- Semillero -->
+                <article class="chapter chapter-a" aria-labelledby="ch-semillero">
+                    <div class="chapter-text" data-reveal-group>
+                        <h3 class="chapter-title" id="ch-semillero" data-reveal data-en="Crack The Code research seedbed">Semillero de investigación Crack The Code</h3>
+                        <p class="chapter-role" data-reveal><span data-en="Leader">Líder</span> · Escuela Normal Superior del Distrito de Barranquilla</p>
+                        <p class="chapter-desc" data-reveal data-en="I lead the seedbed where we research how to teach computational thinking to kids. It gave birth to ¡Viva el Carnaval!, which we presented at the research seedbed fair and you can play right on this page.">Lidero el semillero donde investigamos cómo enseñar pensamiento computacional a los niños. De ahí salió ¡Viva el Carnaval!, que presentamos en la Feria de Semilleros y que puedes jugar en esta misma página.</p>
+                        <div class="chapter-links" data-reveal>
+                            <a class="btn btn-primary btn-sm" href="#juego">
+                                <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#gamepad-2"></use></svg>
+                                <span data-en="Play level 1">Jugar nivel 1</span>
+                            </a>
+                            <a class="text-link" href="https://www.instagram.com/reel/DcC54vggtBf/" target="_blank" rel="noopener">
+                                <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#instagram"></use></svg>
+                                <span data-en="Fair vlog">Vlog de la feria</span>
+                            </a>
+                            <a class="text-link" href="https://github.com/Juandi0127/VivaCarnval" target="_blank" rel="noopener">
+                                <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#github"></use></svg>
+                                <span data-en="Repository">Repositorio</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="chapter-shots shots-pair">
+                        <a class="shot" href="static/img/photos/semillero-stand.webp" data-gallery="semillero" data-caption="Stand de ¡Viva el Carnaval! en la Feria de Semilleros" data-en-caption="¡Viva el Carnaval! booth at the seedbed fair" data-reveal="pic" data-parallax="-5">
+                            <img src="static/img/photos/semillero-stand-sm.webp" width="720" height="960" alt="Juan mostrando ¡Viva el Carnaval! en un portátil durante la feria" data-en-alt="Juan showing ¡Viva el Carnaval! on a laptop at the fair" loading="lazy" decoding="async">
+                        </a>
+                        <a class="shot" href="static/img/photos/semillero-presentacion.webp" data-gallery="semillero" data-caption="Presentando el proyecto a los estudiantes" data-en-caption="Presenting the project to students" data-reveal="pic" data-parallax="7">
+                            <img src="static/img/photos/semillero-presentacion-sm.webp" width="720" height="960" alt="Juan presentando el proyecto del semillero a un grupo de estudiantes" data-en-alt="Juan presenting the seedbed project to a group of students" loading="lazy" decoding="async">
+                        </a>
+                    </div>
+                </article>
 
-                    <!-- Semillero -->
-                    <article class="lead-card lead-card-wide tone-violet reveal">
-                        <div class="lead-main">
-                            <div class="lead-head">
-                                <span class="lead-icon"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#flask-conical"></use></svg></span>
-                                <div>
-                                    <span class="lead-role" data-en="Leader">Líder</span>
-                                    <h3 data-en="Crack The Code research seedbed">Semillero de investigación Crack The Code</h3>
-                                    <p class="lead-org">Escuela Normal Superior del Distrito de Barranquilla</p>
-                                </div>
-                            </div>
-                            <p class="lead-text" data-en="I lead the seedbed where we research how to teach computational thinking to kids. It gave birth to ¡Viva el Carnaval!, which we presented at the research seedbed fair and you can play right on this page.">Lidero el semillero donde investigamos cómo enseñar pensamiento computacional a los niños. De ahí salió ¡Viva el Carnaval!, que presentamos en la Feria de Semilleros y que puedes jugar en esta misma página.</p>
-                            <div class="lead-links">
-                                <a class="btn btn-primary btn-sm" href="#juego">
-                                    <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#gamepad-2"></use></svg>
-                                    <span data-en="Play level 1">Jugar nivel 1</span>
-                                </a>
-                                <a class="btn btn-ghost btn-sm" href="https://www.instagram.com/reel/DcC54vggtBf/" target="_blank" rel="noopener">
-                                    <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#instagram"></use></svg>
-                                    <span data-en="Fair vlog">Vlog de la feria</span>
-                                </a>
-                                <a class="btn btn-ghost btn-sm" href="https://github.com/Juandi0127/VivaCarnval" target="_blank" rel="noopener">
-                                    <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#github"></use></svg>
-                                    <span data-en="Repository">Repositorio</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="shots shots-tall">
-                            <a class="shot" href="static/img/photos/semillero-stand.webp" data-gallery="semillero" data-caption="Stand de ¡Viva el Carnaval! en la Feria de Semilleros" data-en-caption="¡Viva el Carnaval! booth at the seedbed fair">
-                                <img src="static/img/photos/semillero-stand-sm.webp" width="720" height="960" alt="Juan mostrando ¡Viva el Carnaval! en un portátil durante la feria" data-en-alt="Juan showing ¡Viva el Carnaval! on a laptop at the fair" loading="lazy" decoding="async">
-                            </a>
-                            <a class="shot" href="static/img/photos/semillero-presentacion.webp" data-gallery="semillero" data-caption="Presentando el proyecto a los estudiantes" data-en-caption="Presenting the project to students">
-                                <img src="static/img/photos/semillero-presentacion-sm.webp" width="720" height="960" alt="Juan presentando el proyecto del semillero a un grupo de estudiantes" data-en-alt="Juan presenting the seedbed project to a group of students" loading="lazy" decoding="async">
+                <!-- Modelos de Naciones Unidas -->
+                <article class="chapter chapter-b" aria-labelledby="ch-mun">
+                    <div class="chapter-shots shots-quad">
+                        <a class="shot" href="static/img/photos/munhuriba-2026-4.webp" data-gallery="mun" data-caption="MUNHURIBA 2026" data-en-caption="MUNHURIBA 2026" data-reveal="pic">
+                            <img src="static/img/photos/munhuriba-2026-4-sm.webp" width="720" height="960" alt="Juan de traje en MUNHURIBA 2026" data-en-alt="Juan in a suit at MUNHURIBA 2026" loading="lazy" decoding="async">
+                        </a>
+                        <a class="shot" href="static/img/photos/munhuriba-2026-3.webp" data-gallery="mun" data-caption="En el photocall de MUNHURIBA 2026" data-en-caption="At the MUNHURIBA 2026 photo wall" data-reveal="pic">
+                            <img src="static/img/photos/munhuriba-2026-3-sm.webp" width="720" height="956" alt="Juan con otros participantes frente al fondo de MUNHURIBA 2026" data-en-alt="Juan with other participants in front of the MUNHURIBA 2026 backdrop" loading="lazy" decoding="async">
+                        </a>
+                        <a class="shot" href="static/img/photos/normun-mesa.webp" data-gallery="mun" data-caption="Presidiendo la mesa en NORMUN" data-en-caption="Chairing the dais at NORMUN" data-reveal="pic">
+                            <img src="static/img/photos/normun-mesa-sm.webp" width="720" height="960" alt="Juan presidiendo la mesa del modelo NORMUN" data-en-alt="Juan chairing the dais at NORMUN" loading="lazy" decoding="async">
+                        </a>
+                        <a class="shot" href="static/img/photos/munhuriba-2026-1.webp" data-gallery="mun" data-caption="Puesto de Israel en MUNHURIBA 2026" data-en-caption="Israel's seat at MUNHURIBA 2026" data-reveal="pic">
+                            <img src="static/img/photos/munhuriba-2026-1-sm.webp" width="720" height="960" alt="Placa de Israel, bandera y credencial en MUNHURIBA 2026" data-en-alt="Israel placard, flag and badge at MUNHURIBA 2026" loading="lazy" decoding="async">
+                        </a>
+                        <a href="static/img/photos/munhuriba-intervencion.webp" data-gallery="mun" data-caption="Interviniendo en MUNHURIBA" data-en-caption="Speaking at MUNHURIBA" hidden></a>
+                    </div>
+                    <div class="chapter-text" data-reveal-group>
+                        <h3 class="chapter-title" id="ch-mun" data-reveal data-en="Model United Nations">Modelos de Naciones Unidas</h3>
+                        <p class="chapter-role" data-reveal><span data-en="Committee chair">Presidente de comisión</span> · NORMUN · Escuela Normal Superior del Distrito · MUNHURIBA · INETECODECOL, Soledad</p>
+                        <p class="chapter-desc" data-reveal data-en="Five Model UN conferences: two at MUNHURIBA, two at NORMUN and BAQMUN at SNESTE, held in English, where I represented France on the Security Council. In 2025 I chaired the Colombia committee and in 2026 the DISEC committee (Disarmament and International Security) — moderating debate, running the votes and guiding the delegations to a final resolution. In August 2026 I went back to MUNHURIBA and was recognized for my outstanding participation.">Cinco participaciones en modelos de la ONU: dos en MUNHURIBA, dos en NORMUN y el BAQMUN en el SNESTE, que se debate en inglés, donde representé a Francia en el Consejo de Seguridad. En 2025 presidí la Comisión Colombia y en 2026 la comisión DISEC (Desarme y Seguridad Internacional): moderar el debate, dirigir las votaciones y guiar a las delegaciones hasta la resolución final. En agosto de 2026 volví a MUNHURIBA y recibí un reconocimiento por mi participación destacada.</p>
+                        <div class="chapter-links" data-reveal>
+                            <a class="text-link" href="#logros">
+                                <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#award"></use></svg>
+                                <span data-en="See certificates">Ver certificados</span>
                             </a>
                         </div>
-                    </article>
+                    </div>
+                </article>
+            </div>
 
-                    <!-- Modelos de Naciones Unidas -->
-                    <article class="lead-card lead-card-wide lead-card-flip tone-blue reveal">
-                        <div class="lead-main">
-                            <div class="lead-head">
-                                <span class="lead-icon"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#globe"></use></svg></span>
-                                <div>
-                                    <span class="lead-role" data-en="Committee chair">Presidente de comisión</span>
-                                    <h3 data-en="Model United Nations">Modelos de Naciones Unidas</h3>
-                                    <p class="lead-org">NORMUN · Escuela Normal Superior del Distrito &nbsp;·&nbsp; MUNHURIBA · INETECODECOL, Soledad</p>
-                                </div>
-                            </div>
-                            <p class="lead-text" data-en="Five Model UN conferences: two at MUNHURIBA, two at NORMUN and BAQMUN at SNESTE, held in English, where I represented France on the Security Council. In 2025 I chaired the Colombia committee and in 2026 the DISEC committee (Disarmament and International Security) — moderating debate, running the votes and guiding the delegations to a final resolution. In August 2026 I went back to MUNHURIBA and was recognized for my outstanding participation.">Cinco participaciones en modelos de la ONU: dos en MUNHURIBA, dos en NORMUN y el BAQMUN en el SNESTE, que se debate en inglés, donde representé a Francia en el Consejo de Seguridad. En 2025 presidí la Comisión Colombia y en 2026 la comisión DISEC (Desarme y Seguridad Internacional): moderar el debate, dirigir las votaciones y guiar a las delegaciones hasta la resolución final. En agosto de 2026 volví a MUNHURIBA y recibí un reconocimiento por mi participación destacada.</p>
-                            <div class="lead-links">
-                                <a class="btn btn-ghost btn-sm" href="#logros">
-                                    <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#award"></use></svg>
-                                    <span data-en="See certificates">Ver certificados</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="shots">
-                            <a class="shot" href="static/img/photos/munhuriba-2026-4.webp" data-gallery="mun" data-caption="MUNHURIBA 2026" data-en-caption="MUNHURIBA 2026">
-                                <img src="static/img/photos/munhuriba-2026-4-sm.webp" width="720" height="960" alt="Juan de traje en MUNHURIBA 2026" data-en-alt="Juan in a suit at MUNHURIBA 2026" loading="lazy" decoding="async">
-                            </a>
-                            <a class="shot" href="static/img/photos/munhuriba-2026-3.webp" data-gallery="mun" data-caption="En el photocall de MUNHURIBA 2026" data-en-caption="At the MUNHURIBA 2026 photo wall">
-                                <img src="static/img/photos/munhuriba-2026-3-sm.webp" width="720" height="956" alt="Juan con otros participantes frente al fondo de MUNHURIBA 2026" data-en-alt="Juan with other participants in front of the MUNHURIBA 2026 backdrop" loading="lazy" decoding="async">
-                            </a>
-                            <a class="shot" href="static/img/photos/normun-mesa.webp" data-gallery="mun" data-caption="Presidiendo la mesa en NORMUN" data-en-caption="Chairing the dais at NORMUN">
-                                <img src="static/img/photos/normun-mesa-sm.webp" width="720" height="960" alt="Juan presidiendo la mesa del modelo NORMUN" data-en-alt="Juan chairing the dais at NORMUN" loading="lazy" decoding="async">
-                            </a>
-                            <a class="shot" href="static/img/photos/munhuriba-2026-1.webp" data-gallery="mun" data-caption="Puesto de Israel en MUNHURIBA 2026" data-en-caption="Israel's seat at MUNHURIBA 2026">
-                                <img src="static/img/photos/munhuriba-2026-1-sm.webp" width="720" height="960" alt="Placa de Israel, bandera y credencial en MUNHURIBA 2026" data-en-alt="Israel placard, flag and badge at MUNHURIBA 2026" loading="lazy" decoding="async">
-                            </a>
-                            <a href="static/img/photos/munhuriba-intervencion.webp" data-gallery="mun" data-caption="Interviniendo en MUNHURIBA" data-en-caption="Speaking at MUNHURIBA" hidden></a>
-                        </div>
-                    </article>
-
-                    <!-- Hackatón BAQ -->
-                    <article class="lead-card tone-amber reveal">
-                        <div class="lead-head">
-                            <span class="lead-icon"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#trophy"></use></svg></span>
-                            <div>
-                                <span class="lead-role" data-en="Hackathon winner · 2026">Ganador de hackatón · 2026</span>
-                                <h3 data-en="Hackathons">Hackatones</h3>
-                                <p class="lead-org">SpaceX · Cursor · Grok &nbsp;·&nbsp; Hackatón BAQ</p>
-                            </div>
-                        </div>
-                        <p class="lead-text" data-en-html="In 2026 I &lt;strong&gt;won the hackathon organized by SpaceX, Cursor and Grok&lt;/strong&gt;. I've also been among the winners of Hackatón BAQ two years in a row, competing solo; in 2026 I represented Escuela Normal Superior del Distrito.">En 2026 <strong>gané la hackatón organizada por SpaceX, Cursor y Grok</strong>. Además, llevo dos años seguidos entre los ganadores de la Hackatón BAQ, compitiendo de forma individual; en 2026 representé a la Escuela Normal Superior del Distrito.</p>
-                        <div class="shots shots-tall shots-3">
+            <!-- Hackatones: foto a sangre con tarjeta -->
+            <article class="chapter chapter-c" aria-labelledby="ch-hack">
+                <div class="chapter-bleed" data-reveal="open">
+                    <img src="static/img/photos/hackaton-cursor-2026-ganadores.webp" width="960" height="1280" alt="Juan con su premio como ganador de la hackatón de SpaceX, Cursor y Grok" data-en-alt="Juan with his prize as a winner of the SpaceX, Cursor and Grok hackathon" loading="lazy" decoding="async" data-parallax="-4">
+                </div>
+                <div class="wrap chapter-c-inner">
+                    <div class="chapter-card" data-reveal-group>
+                        <h3 class="chapter-title" id="ch-hack" data-reveal data-en="Hackathons">Hackatones</h3>
+                        <p class="chapter-role" data-reveal><span data-en="Hackathon winner · 2026">Ganador de hackatón · 2026</span> · SpaceX · Cursor · Grok · Hackatón BAQ</p>
+                        <p class="chapter-desc" data-reveal data-en-html="In 2026 I &lt;strong&gt;won the hackathon organized by SpaceX, Cursor and Grok&lt;/strong&gt;. I've also been among the winners of Hackatón BAQ two years in a row, competing solo; in 2026 I represented Escuela Normal Superior del Distrito.">En 2026 <strong>gané la hackatón organizada por SpaceX, Cursor y Grok</strong>. Además, llevo dos años seguidos entre los ganadores de la Hackatón BAQ, compitiendo de forma individual; en 2026 representé a la Escuela Normal Superior del Distrito.</p>
+                        <div class="card-shots" data-reveal>
                             <a class="shot" href="static/img/photos/hackaton-cursor-2026-ganadores.webp" data-gallery="hackaton" data-caption="Ganadores de la hackatón de SpaceX, Cursor y Grok 2026" data-en-caption="Winners of the SpaceX, Cursor and Grok 2026 hackathon">
                                 <img src="static/img/photos/hackaton-cursor-2026-ganadores-sm.webp" width="720" height="960" alt="Juan con su premio como ganador de la hackatón de SpaceX, Cursor y Grok" data-en-alt="Juan with his prize as a winner of the SpaceX, Cursor and Grok hackathon" loading="lazy" decoding="async">
                             </a>
@@ -724,338 +663,336 @@
                                 <img src="static/img/photos/hackaton-2025-sm.webp" width="720" height="508" alt="Juan explicando su solución en la Hackatón BAQ 2025" data-en-alt="Juan explaining his solution at Hackatón BAQ 2025" loading="lazy" decoding="async">
                             </a>
                         </div>
-                        <div class="lead-links">
-                            <a class="btn btn-ghost btn-sm" href="https://www.instagram.com/reel/DdIhNjAgiFr/" target="_blank" rel="noopener">
+                        <div class="chapter-links" data-reveal>
+                            <a class="btn btn-dark btn-sm" href="https://www.instagram.com/reel/DdIhNjAgiFr/" target="_blank" rel="noopener">
                                 <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#instagram"></use></svg>
                                 <span data-en="Watch the reel">Ver el reel</span>
                             </a>
-                            <a class="btn btn-ghost btn-sm" href="#logros">
+                            <a class="text-link" href="#logros">
                                 <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#award"></use></svg>
                                 <span data-en="See certificate">Ver certificado</span>
                             </a>
                         </div>
-                    </article>
+                    </div>
+                </div>
+            </article>
 
-                    <!-- Clases -->
-                    <article class="lead-card tone-green reveal">
-                        <div class="lead-head">
-                            <span class="lead-icon"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#presentation"></use></svg></span>
-                            <div>
-                                <span class="lead-role" data-en="Instructor">Instructor</span>
-                                <h3 data-en="Programming classes">Clases de programación</h3>
-                                <p class="lead-org">Laboratorio de Innovación Educativa · Barranquilla</p>
-                            </div>
-                        </div>
-                        <p class="lead-text" data-en="I teach programming to other students: Python fundamentals, logical operators, conditionals and problem solving. Teaching forces me to truly understand what I build, not just make it work.">Doy clases de programación a otros estudiantes: fundamentos de Python, operadores lógicos, condicionales y resolución de problemas. Enseñar me obliga a entender de verdad lo que construyo, no solo a hacerlo funcionar.</p>
-                        <div class="shots">
-                            <a class="shot" href="static/img/photos/clase-laboratorio.webp" data-gallery="clases" data-caption="Clase de programación en el laboratorio" data-en-caption="Programming class at the lab">
-                                <img src="static/img/photos/clase-laboratorio-sm.webp" width="720" height="960" alt="Estudiantes atentos a la clase de programación de Juan" data-en-alt="Students following Juan's programming class" loading="lazy" decoding="async">
-                            </a>
-                            <a class="shot" href="static/img/photos/clase-python.webp" data-gallery="clases" data-caption="Explicando condicionales en Python" data-en-caption="Explaining conditionals in Python">
-                                <img src="static/img/photos/clase-python-sm.webp" width="720" height="960" alt="Juan explicando condicionales de Python en la pantalla" data-en-alt="Juan explaining Python conditionals on the screen" loading="lazy" decoding="async">
-                            </a>
-                        </div>
-                    </article>
+            <div class="wrap">
+                <!-- Clases -->
+                <article class="chapter chapter-d" aria-labelledby="ch-clases">
+                    <div class="chapter-text" data-reveal-group>
+                        <h3 class="chapter-title" id="ch-clases" data-reveal data-en="Programming classes">Clases de programación</h3>
+                        <p class="chapter-role" data-reveal><span data-en="Instructor">Instructor</span> · Laboratorio de Innovación Educativa · Barranquilla</p>
+                        <p class="chapter-desc" data-reveal data-en="I teach programming to other students: Python fundamentals, logical operators, conditionals and problem solving. Teaching forces me to truly understand what I build, not just make it work.">Doy clases de programación a otros estudiantes: fundamentos de Python, operadores lógicos, condicionales y resolución de problemas. Enseñar me obliga a entender de verdad lo que construyo, no solo a hacerlo funcionar.</p>
+                    </div>
+                    <div class="chapter-shots shots-overlap">
+                        <a class="shot shot-big" href="static/img/photos/clase-laboratorio.webp" data-gallery="clases" data-caption="Clase de programación en el laboratorio" data-en-caption="Programming class at the lab" data-reveal="pic">
+                            <img src="static/img/photos/clase-laboratorio-sm.webp" width="720" height="960" alt="Estudiantes atentos a la clase de programación de Juan" data-en-alt="Students following Juan's programming class" loading="lazy" decoding="async">
+                        </a>
+                        <a class="shot shot-small" href="static/img/photos/clase-python.webp" data-gallery="clases" data-caption="Explicando condicionales en Python" data-en-caption="Explaining conditionals in Python" data-reveal="pic" data-parallax="12">
+                            <img src="static/img/photos/clase-python-sm.webp" width="720" height="960" alt="Juan explicando condicionales de Python en la pantalla" data-en-alt="Juan explaining Python conditionals on the screen" loading="lazy" decoding="async">
+                        </a>
+                    </div>
+                </article>
 
-                    <!-- Contenido -->
-                    <article class="lead-card lead-card-stack tone-pink reveal">
-                        <div class="lead-main">
-                            <div class="lead-head">
-                                <span class="lead-icon"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#clapperboard"></use></svg></span>
-                                <div>
-                                    <span class="lead-role" data-en="Content creator">Creador de contenido</span>
-                                    <h3 data-en="Programming &amp; AI, on video">Programación e IA, en video</h3>
-                                    <p class="lead-org">TikTok @juamdi.ww · Instagram @j.vanegass</p>
-                                </div>
-                            </div>
-                            <p class="lead-text" data-en="I share what I build and what I learn: programming, AI agents, automation and the behind-the-scenes of my projects.">Comparto lo que construyo y lo que aprendo: programación, agentes de IA, automatización y el detrás de cámaras de mis proyectos.</p>
-                        </div>
-                        <div class="reels">
-                            <a class="reel" href="https://www.instagram.com/reel/DbL51VopsYY/" target="_blank" rel="noopener">
-                                <img src="static/img/content/reel-lenguaje.webp" width="360" height="640" alt="Reel: ¿Con qué lenguaje de programación debo empezar?" data-en-alt="Reel: Which programming language should I start with?" loading="lazy" decoding="async">
-                                <span class="reel-badge" aria-hidden="true"><svg class="icon"><use href="static/img/icons.svg#play"></use></svg></span>
-                            </a>
-                            <a class="reel" href="https://www.instagram.com/reel/DbwdUjhAFoc/" target="_blank" rel="noopener">
-                                <img src="static/img/content/reel-ia.webp" width="360" height="640" alt="Reel: ¿Cómo funciona la IA? Explicado fácil y rápido" data-en-alt="Reel: How does AI work? Explained quick and easy" loading="lazy" decoding="async">
-                                <span class="reel-badge" aria-hidden="true"><svg class="icon"><use href="static/img/icons.svg#play"></use></svg></span>
-                            </a>
-                            <a class="reel" href="https://www.instagram.com/reel/DcVSmyFOvQ6/" target="_blank" rel="noopener">
-                                <img src="static/img/content/reel-aprender.webp" width="360" height="640" alt="Reel: el problema al aprender a programar" data-en-alt="Reel: the problem with learning to code" loading="lazy" decoding="async">
-                                <span class="reel-badge" aria-hidden="true"><svg class="icon"><use href="static/img/icons.svg#play"></use></svg></span>
-                            </a>
-                            <a class="reel" href="https://www.instagram.com/reel/DcdaoXfuhkx/" target="_blank" rel="noopener">
-                                <img src="static/img/content/reel-consejos.webp" width="360" height="640" alt="Reel: 5 cosas que ojalá me hubieran dicho" data-en-alt="Reel: 5 things I wish someone had told me" loading="lazy" decoding="async">
-                                <span class="reel-badge" aria-hidden="true"><svg class="icon"><use href="static/img/icons.svg#play"></use></svg></span>
-                            </a>
-                        </div>
-                        <div class="lead-links">
-                            <a class="btn btn-ghost btn-sm" href="https://www.tiktok.com/@juamdi.ww" target="_blank" rel="noopener">
+                <!-- Contenido -->
+                <article class="chapter chapter-e" aria-labelledby="ch-contenido">
+                    <div class="chapter-text" data-reveal-group>
+                        <h3 class="chapter-title" id="ch-contenido" data-reveal data-en="Programming &amp; AI, on video">Programación e IA, en video</h3>
+                        <p class="chapter-role" data-reveal><span data-en="Content creator">Creador de contenido</span> · TikTok @juamdi.ww · Instagram @j.vanegass</p>
+                        <p class="chapter-desc" data-reveal data-en="I share what I build and what I learn: programming, AI agents, automation and the behind-the-scenes of my projects.">Comparto lo que construyo y lo que aprendo: programación, agentes de IA, automatización y el detrás de cámaras de mis proyectos.</p>
+                        <div class="chapter-links" data-reveal>
+                            <a class="text-link" href="https://www.tiktok.com/@juamdi.ww" target="_blank" rel="noopener">
                                 <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#tiktok"></use></svg>
                                 TikTok
                             </a>
-                            <a class="btn btn-ghost btn-sm" href="https://www.instagram.com/j.vanegass/" target="_blank" rel="noopener">
+                            <a class="text-link" href="https://www.instagram.com/j.vanegass/" target="_blank" rel="noopener">
                                 <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#instagram"></use></svg>
                                 Instagram
                             </a>
                         </div>
-                    </article>
-                </div>
+                    </div>
+                    <ul class="reels" data-reveal-group>
+                        <li data-reveal>
+                            <a class="reel" href="https://www.instagram.com/reel/DbL51VopsYY/" target="_blank" rel="noopener">
+                                <img src="static/img/content/reel-lenguaje.webp" width="360" height="640" alt="Reel: ¿Con qué lenguaje de programación debo empezar?" data-en-alt="Reel: Which programming language should I start with?" loading="lazy" decoding="async">
+                                <span class="reel-play" aria-hidden="true"><svg class="icon"><use href="static/img/icons.svg#play"></use></svg></span>
+                            </a>
+                        </li>
+                        <li data-reveal>
+                            <a class="reel" href="https://www.instagram.com/reel/DbwdUjhAFoc/" target="_blank" rel="noopener">
+                                <img src="static/img/content/reel-ia.webp" width="360" height="640" alt="Reel: ¿Cómo funciona la IA? Explicado fácil y rápido" data-en-alt="Reel: How does AI work? Explained quick and easy" loading="lazy" decoding="async">
+                                <span class="reel-play" aria-hidden="true"><svg class="icon"><use href="static/img/icons.svg#play"></use></svg></span>
+                            </a>
+                        </li>
+                        <li data-reveal>
+                            <a class="reel" href="https://www.instagram.com/reel/DcVSmyFOvQ6/" target="_blank" rel="noopener">
+                                <img src="static/img/content/reel-aprender.webp" width="360" height="640" alt="Reel: el problema al aprender a programar" data-en-alt="Reel: the problem with learning to code" loading="lazy" decoding="async">
+                                <span class="reel-play" aria-hidden="true"><svg class="icon"><use href="static/img/icons.svg#play"></use></svg></span>
+                            </a>
+                        </li>
+                        <li data-reveal>
+                            <a class="reel" href="https://www.instagram.com/reel/DcdaoXfuhkx/" target="_blank" rel="noopener">
+                                <img src="static/img/content/reel-consejos.webp" width="360" height="640" alt="Reel: 5 cosas que ojalá me hubieran dicho" data-en-alt="Reel: 5 things I wish someone had told me" loading="lazy" decoding="async">
+                                <span class="reel-play" aria-hidden="true"><svg class="icon"><use href="static/img/icons.svg#play"></use></svg></span>
+                            </a>
+                        </li>
+                    </ul>
+                </article>
             </div>
         </section>
 
         <!-- ===================== LOGROS Y CERTIFICADOS ===================== -->
-        <section class="section" id="logros" aria-labelledby="certs-title">
-            <div class="container">
-                <header class="section-head reveal">
-                    <p class="eyebrow"><span class="eyebrow-num">05</span><span data-en="Awards &amp; certificates">Logros y certificados</span></p>
-                    <h2 class="section-title" id="certs-title" data-en="Recognitions, courses and diplomas">Reconocimientos, cursos y diplomas</h2>
+        <section class="section certs" id="logros" aria-labelledby="certs-title">
+            <div class="wrap">
+                <header class="section-head certs-head">
+                    <h2 class="section-title" id="certs-title" data-split data-en="Recognitions, courses and diplomas">Reconocimientos, cursos y diplomas</h2>
+                    <div class="filters" data-reveal role="group" aria-label="Filtrar certificados" data-en-aria-label="Filter certificates">
+                        <span class="filter-thumb" aria-hidden="true"></span>
+                        <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">
+                            <span data-en="All">Todos</span><span class="filter-count">10</span>
+                        </button>
+                        <button class="filter" type="button" data-filter="tech" aria-pressed="false">
+                            <span data-en="Programming">Programación</span><span class="filter-count">5</span>
+                        </button>
+                        <button class="filter" type="button" data-filter="lead" aria-pressed="false">
+                            <span data-en="Leadership &amp; awards">Liderazgo y premios</span><span class="filter-count">5</span>
+                        </button>
+                    </div>
                 </header>
 
-                <div class="filters reveal" role="group" aria-label="Filtrar certificados" data-en-aria-label="Filter certificates">
-                    <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">
-                        <span data-en="All">Todos</span><span class="filter-count">10</span>
-                    </button>
-                    <button class="filter" type="button" data-filter="tech" aria-pressed="false">
-                        <span data-en="Programming">Programación</span><span class="filter-count">5</span>
-                    </button>
-                    <button class="filter" type="button" data-filter="lead" aria-pressed="false">
-                        <span data-en="Leadership &amp; awards">Liderazgo y premios</span><span class="filter-count">5</span>
-                    </button>
-                </div>
-
-                <div class="certs-grid">
-
-                    <article class="cert reveal" data-cat="lead">
-                        <a class="cert-media" href="static/img/certs/baqmun-2026.webp" data-gallery="certs" data-caption="Certificado del Modelo de Naciones Unidas BAQMUN 2026" data-en-caption="BAQMUN 2026 Model United Nations certificate">
-                            <img src="static/img/certs/baqmun-2026-sm.webp" width="720" height="564" alt="Certificado del Modelo de Naciones Unidas BAQMUN 2026" data-en-alt="BAQMUN 2026 Model United Nations certificate" loading="lazy" decoding="async">
-                            <span class="badge tone-cyan cert-flag" data-en="New">Nuevo</span>
-                        </a>
-                        <div class="cert-body">
-                            <h3 class="cert-title" data-en="BAQMUN 2026 Model United Nations">Modelo de Naciones Unidas BAQMUN 2026</h3>
-                            <p class="cert-issuer" data-en="BAQMUN Foundation · III edition &#39;Assembling The Future&#39; · Barranquilla">Fundación BAQMUN · III edición &#39;Assembling The Future&#39; · Barranquilla</p>
-                            <p class="cert-date"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#calendar"></use></svg><time datetime="2026-10-03" data-en="Oct 2026">oct 2026</time></p>
+                <div class="certs-layout">
+                    <div class="certs-list">
+                        <div class="cert-group" data-group="lead">
+                            <h3 class="cert-group-title" data-en="Leadership &amp; awards">Liderazgo y premios</h3>
+                            <ul>
+                                <li class="cert" data-cat="lead" data-reveal="row">
+                                    <a class="cert-row" href="static/img/certs/baqmun-2026.webp" data-gallery="certs" data-caption="Certificado del Modelo de Naciones Unidas BAQMUN 2026" data-en-caption="BAQMUN 2026 Model United Nations certificate">
+                                        <img class="cert-thumb" src="static/img/certs/baqmun-2026-sm.webp" width="720" height="564" alt="Certificado del Modelo de Naciones Unidas BAQMUN 2026" data-en-alt="BAQMUN 2026 Model United Nations certificate" loading="lazy" decoding="async">
+                                        <span class="cert-main">
+                                            <span class="cert-title" data-en="BAQMUN 2026 Model United Nations">Modelo de Naciones Unidas BAQMUN 2026</span>
+                                            <span class="cert-flag" data-en="New">Nuevo</span>
+                                        </span>
+                                        <span class="cert-issuer" data-en="BAQMUN Foundation · III edition &#39;Assembling The Future&#39; · Barranquilla">Fundación BAQMUN · III edición &#39;Assembling The Future&#39; · Barranquilla</span>
+                                        <time class="cert-date" datetime="2026-10-03" data-en="Oct 2026">oct 2026</time>
+                                    </a>
+                                </li>
+                                <li class="cert" data-cat="lead" data-reveal="row">
+                                    <a class="cert-row" href="static/img/certs/munhuriba-2026.webp" data-gallery="certs" data-caption="Certificado MUNHURIBA 2026 · INETECODECOL" data-en-caption="MUNHURIBA 2026 certificate · INETECODECOL">
+                                        <img class="cert-thumb" src="static/img/certs/munhuriba-2026-sm.webp" width="720" height="554" alt="Certificado del Modelo de Naciones Unidas MUNHURIBA 2026" data-en-alt="MUNHURIBA 2026 Model United Nations certificate" loading="lazy" decoding="async">
+                                        <span class="cert-main">
+                                            <span class="cert-title" data-en="MUNHURIBA Model United Nations 2026">Modelo de Naciones Unidas MUNHURIBA 2026</span>
+                                        </span>
+                                        <span class="cert-issuer" data-en="INETECODECOL · Recognition for outstanding participation">INETECODECOL · Reconocimiento por participación destacada</span>
+                                        <time class="cert-date" datetime="2026-08-29" data-en="Aug 2026">ago 2026</time>
+                                    </a>
+                                </li>
+                                <li class="cert" data-cat="lead" data-reveal="row">
+                                    <a class="cert-row" href="static/img/certs/hackaton-baq-2026.webp" data-gallery="certs" data-caption="Certificado Hackatón BAQ 2026" data-en-caption="Hackatón BAQ 2026 certificate">
+                                        <img class="cert-thumb" src="static/img/certs/hackaton-baq-2026-sm.webp" width="720" height="485" alt="Certificado de la Hackatón BAQ 2026" data-en-alt="Hackatón BAQ 2026 certificate" loading="lazy" decoding="async">
+                                        <span class="cert-main">
+                                            <span class="cert-title">Hackatón BAQ 2026</span>
+                                            <span class="cert-flag cert-flag-win"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#trophy"></use></svg><span data-en="Among the winners">Entre los ganadores</span></span>
+                                        </span>
+                                        <span class="cert-issuer">Crack The Code · +Educación +Innovación · Alcaldía de Barranquilla</span>
+                                        <time class="cert-date" datetime="2026-08-01" data-en="Aug 2026">ago 2026</time>
+                                    </a>
+                                </li>
+                                <li class="cert" data-cat="lead" data-reveal="row">
+                                    <a class="cert-row" href="static/img/certs/normun-2025.webp" data-gallery="certs" data-caption="Certificado Modelo de Naciones Unidas NORMUN 2025" data-en-caption="NORMUN 2025 Model United Nations certificate">
+                                        <img class="cert-thumb" src="static/img/certs/normun-2025-sm.webp" width="720" height="463" alt="Certificado del Modelo de Naciones Unidas NORMUN" data-en-alt="NORMUN Model United Nations certificate" loading="lazy" decoding="async">
+                                        <span class="cert-main">
+                                            <span class="cert-title" data-en="NORMUN Model United Nations">Modelo de Naciones Unidas NORMUN</span>
+                                        </span>
+                                        <span class="cert-issuer">Escuela Normal Superior del Distrito</span>
+                                        <time class="cert-date" datetime="2025-10" data-en="Oct 2025">oct 2025</time>
+                                    </a>
+                                </li>
+                                <li class="cert" data-cat="lead" data-reveal="row">
+                                    <a class="cert-row" href="static/img/certs/munhuriba-2025.webp" data-gallery="certs" data-caption="Certificado Modelo de Naciones Unidas MUNHURIBA 2025" data-en-caption="MUNHURIBA 2025 Model United Nations certificate">
+                                        <img class="cert-thumb" src="static/img/certs/munhuriba-2025-sm.webp" width="720" height="579" alt="Certificado del Modelo de Naciones Unidas MUNHURIBA 2025" data-en-alt="MUNHURIBA 2025 Model United Nations certificate" loading="lazy" decoding="async">
+                                        <span class="cert-main">
+                                            <span class="cert-title" data-en="MUNHURIBA Model United Nations 2025">Modelo de Naciones Unidas MUNHURIBA 2025</span>
+                                        </span>
+                                        <span class="cert-issuer">INETECODECOL · Soledad, Atlántico</span>
+                                        <time class="cert-date" datetime="2025-06-14" data-en="Jun 2025">jun 2025</time>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-                    </article>
 
-                    <article class="cert reveal" data-cat="lead">
-                        <a class="cert-media" href="static/img/certs/munhuriba-2026.webp" data-gallery="certs" data-caption="Certificado MUNHURIBA 2026 · INETECODECOL" data-en-caption="MUNHURIBA 2026 certificate · INETECODECOL">
-                            <img src="static/img/certs/munhuriba-2026-sm.webp" width="720" height="554" alt="Certificado del Modelo de Naciones Unidas MUNHURIBA 2026" data-en-alt="MUNHURIBA 2026 Model United Nations certificate" loading="lazy" decoding="async">
-                        </a>
-                        <div class="cert-body">
-                            <h3 class="cert-title" data-en="MUNHURIBA Model United Nations 2026">Modelo de Naciones Unidas MUNHURIBA 2026</h3>
-                            <p class="cert-issuer" data-en="INETECODECOL · Recognition for outstanding participation">INETECODECOL · Reconocimiento por participación destacada</p>
-                            <p class="cert-date"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#calendar"></use></svg><time datetime="2026-08-29" data-en="Aug 2026">ago 2026</time></p>
+                        <div class="cert-group" data-group="tech">
+                            <h3 class="cert-group-title" data-en="Programming">Programación</h3>
+                            <ul>
+                                <li class="cert" data-cat="tech" data-reveal="row">
+                                    <a class="cert-row" href="static/img/certs/developer-360.webp" data-gallery="certs" data-caption="Diploma Developer 360: Sistema de Gestión y Automatización" data-en-caption="Developer 360 Diploma: Management &amp; Automation Systems">
+                                        <img class="cert-thumb" src="static/img/certs/developer-360-sm.webp" width="720" height="570" alt="Diploma de Developer 360 de STEAM Academy" data-en-alt="STEAM Academy Developer 360 diploma" loading="lazy" decoding="async">
+                                        <span class="cert-main">
+                                            <span class="cert-title" data-en="Developer 360 Diploma — Management &amp; Automation Systems">Diploma Developer 360 — Sistema de Gestión y Automatización</span>
+                                            <span class="cert-flag cert-flag-muted"><span data-en="2 documents">2 documentos</span></span>
+                                        </span>
+                                        <span class="cert-issuer">STEAM Academy</span>
+                                        <time class="cert-date" datetime="2026-05-13" data-en="May 2026">may 2026</time>
+                                    </a>
+                                    <a href="static/img/certs/developer-360-detalle.webp" data-gallery="certs" data-caption="Developer 360: detalle académico del primer trimestre" data-en-caption="Developer 360: first-term academic detail" hidden></a>
+                                </li>
+                                <li class="cert" data-cat="tech" data-reveal="row">
+                                    <a class="cert-row" href="static/img/certs/python-tecnicas-avanzadas-2026.webp" data-gallery="certs" data-caption="Diploma en Técnicas Avanzadas de Programación y Automatización con Python" data-en-caption="Diploma in Advanced Python Programming &amp; Automation Techniques">
+                                        <img class="cert-thumb" src="static/img/certs/python-tecnicas-avanzadas-2026-sm.webp" width="720" height="525" alt="Diploma en Técnicas Avanzadas de Programación y Automatización con Python" data-en-alt="Diploma in Advanced Python Programming and Automation Techniques" loading="lazy" decoding="async">
+                                        <span class="cert-main">
+                                            <span class="cert-title" data-en="Advanced Python Programming &amp; Automation Techniques">Técnicas Avanzadas de Programación y Automatización con Python</span>
+                                        </span>
+                                        <span class="cert-issuer">STEAM Academy</span>
+                                        <time class="cert-date" datetime="2026-03-12" data-en="Mar 2026">mar 2026</time>
+                                    </a>
+                                </li>
+                                <li class="cert" data-cat="tech" data-reveal="row">
+                                    <a class="cert-row" href="static/img/certs/python-sql-ciencia-datos-2025.webp" data-gallery="certs" data-caption="Diploma Profesional en Python, SQL y Ciencia de Datos" data-en-caption="Professional Diploma in Python, SQL &amp; Data Science">
+                                        <img class="cert-thumb" src="static/img/certs/python-sql-ciencia-datos-2025-sm.webp" width="720" height="535" alt="Diploma Profesional en Python, SQL y Ciencia de Datos" data-en-alt="Professional Diploma in Python, SQL and Data Science" loading="lazy" decoding="async">
+                                        <span class="cert-main">
+                                            <span class="cert-title" data-en="Professional Diploma in Python, SQL &amp; Data Science">Diploma Profesional en Python, SQL y Ciencia de Datos</span>
+                                        </span>
+                                        <span class="cert-issuer">STEAM Academy</span>
+                                        <time class="cert-date" datetime="2025-10-21" data-en="Oct 2025">oct 2025</time>
+                                    </a>
+                                </li>
+                                <li class="cert" data-cat="tech" data-reveal="row">
+                                    <a class="cert-row" href="static/img/certs/python-modulo-1-2025.webp" data-gallery="certs" data-caption="Python Módulo 1: Fundamentos y Funciones Avanzadas" data-en-caption="Python Module 1: Fundamentals &amp; Advanced Functions">
+                                        <img class="cert-thumb" src="static/img/certs/python-modulo-1-2025-sm.webp" width="720" height="567" alt="Certificado Python Módulo 1" data-en-alt="Python Module 1 certificate" loading="lazy" decoding="async">
+                                        <span class="cert-main">
+                                            <span class="cert-title" data-en="Python Module 1 — Fundamentals &amp; Advanced Functions">Python Módulo 1 — Fundamentos y Funciones Avanzadas</span>
+                                        </span>
+                                        <span class="cert-issuer">STEAM Academy · Fundación STEM Colombia</span>
+                                        <time class="cert-date" datetime="2025-06-05" data-en="Jun 2025">jun 2025</time>
+                                    </a>
+                                </li>
+                                <li class="cert" data-cat="tech" data-reveal="row">
+                                    <a class="cert-row" href="static/img/certs/robotikids-2020.webp" data-gallery="certs" data-caption="Certificado de finalización: Robótica y Programación" data-en-caption="Completion certificate: Robotics &amp; Programming">
+                                        <img class="cert-thumb" src="static/img/certs/robotikids-2020-sm.webp" width="720" height="514" alt="Certificado de finalización de Robótica y Programación de RobotiKids" data-en-alt="RobotiKids Robotics and Programming completion certificate" loading="lazy" decoding="async">
+                                        <span class="cert-main">
+                                            <span class="cert-title" data-en="Robotics &amp; Programming — Completion certificate">Robótica y Programación — Certificado de finalización</span>
+                                        </span>
+                                        <span class="cert-issuer">RobotiKids</span>
+                                        <time class="cert-date" datetime="2020-07-15" data-en="Jul 2020">jul 2020</time>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-                    </article>
+                    </div>
 
-                    <article class="cert cert-gold reveal" data-cat="lead">
-                        <a class="cert-media" href="static/img/certs/hackaton-baq-2026.webp" data-gallery="certs" data-caption="Certificado Hackatón BAQ 2026" data-en-caption="Hackatón BAQ 2026 certificate">
-                            <img src="static/img/certs/hackaton-baq-2026-sm.webp" width="720" height="485" alt="Certificado de la Hackatón BAQ 2026" data-en-alt="Hackatón BAQ 2026 certificate" loading="lazy" decoding="async">
-                            <span class="badge tone-amber cert-flag">
-                                <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#trophy"></use></svg>
-                                <span data-en="Among the winners">Entre los ganadores</span>
-                            </span>
-                        </a>
-                        <div class="cert-body">
-                            <h3 class="cert-title">Hackatón BAQ 2026</h3>
-                            <p class="cert-issuer">Crack The Code · +Educación +Innovación · Alcaldía de Barranquilla</p>
-                            <p class="cert-date"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#calendar"></use></svg><time datetime="2026-08-01" data-en="Aug 2026">ago 2026</time></p>
+                    <div class="certs-preview" aria-hidden="true">
+                        <div class="certs-preview-frame">
+                            <img src="static/img/certs/baqmun-2026-sm.webp" width="720" height="564" alt="" loading="lazy" decoding="async">
                         </div>
-                    </article>
-
-                    <article class="cert reveal" data-cat="tech">
-                        <a class="cert-media" href="static/img/certs/developer-360.webp" data-gallery="certs" data-caption="Diploma Developer 360: Sistema de Gestión y Automatización" data-en-caption="Developer 360 Diploma: Management &amp; Automation Systems">
-                            <img src="static/img/certs/developer-360-sm.webp" width="720" height="570" alt="Diploma de Developer 360 de STEAM Academy" data-en-alt="STEAM Academy Developer 360 diploma" loading="lazy" decoding="async">
-                            <span class="media-pill">
-                                <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#images"></use></svg>
-                                <span data-en="2 documents">2 documentos</span>
-                            </span>
-                        </a>
-                        <a href="static/img/certs/developer-360-detalle.webp" data-gallery="certs" data-caption="Developer 360: detalle académico del primer trimestre" data-en-caption="Developer 360: first-term academic detail" hidden></a>
-                        <div class="cert-body">
-                            <h3 class="cert-title" data-en="Developer 360 Diploma — Management &amp; Automation Systems">Diploma Developer 360 — Sistema de Gestión y Automatización</h3>
-                            <p class="cert-issuer">STEAM Academy</p>
-                            <p class="cert-date"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#calendar"></use></svg><time datetime="2026-05-13" data-en="May 2026">may 2026</time></p>
-                        </div>
-                    </article>
-
-                    <article class="cert reveal" data-cat="tech">
-                        <a class="cert-media" href="static/img/certs/python-tecnicas-avanzadas-2026.webp" data-gallery="certs" data-caption="Diploma en Técnicas Avanzadas de Programación y Automatización con Python" data-en-caption="Diploma in Advanced Python Programming &amp; Automation Techniques">
-                            <img src="static/img/certs/python-tecnicas-avanzadas-2026-sm.webp" width="720" height="525" alt="Diploma en Técnicas Avanzadas de Programación y Automatización con Python" data-en-alt="Diploma in Advanced Python Programming and Automation Techniques" loading="lazy" decoding="async">
-                        </a>
-                        <div class="cert-body">
-                            <h3 class="cert-title" data-en="Advanced Python Programming &amp; Automation Techniques">Técnicas Avanzadas de Programación y Automatización con Python</h3>
-                            <p class="cert-issuer">STEAM Academy</p>
-                            <p class="cert-date"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#calendar"></use></svg><time datetime="2026-03-12" data-en="Mar 2026">mar 2026</time></p>
-                        </div>
-                    </article>
-
-                    <article class="cert reveal" data-cat="lead">
-                        <a class="cert-media" href="static/img/certs/normun-2025.webp" data-gallery="certs" data-caption="Certificado Modelo de Naciones Unidas NORMUN 2025" data-en-caption="NORMUN 2025 Model United Nations certificate">
-                            <img src="static/img/certs/normun-2025-sm.webp" width="720" height="463" alt="Certificado del Modelo de Naciones Unidas NORMUN" data-en-alt="NORMUN Model United Nations certificate" loading="lazy" decoding="async">
-                        </a>
-                        <div class="cert-body">
-                            <h3 class="cert-title" data-en="NORMUN Model United Nations">Modelo de Naciones Unidas NORMUN</h3>
-                            <p class="cert-issuer">Escuela Normal Superior del Distrito</p>
-                            <p class="cert-date"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#calendar"></use></svg><time datetime="2025-10" data-en="Oct 2025">oct 2025</time></p>
-                        </div>
-                    </article>
-
-                    <article class="cert reveal" data-cat="tech">
-                        <a class="cert-media" href="static/img/certs/python-sql-ciencia-datos-2025.webp" data-gallery="certs" data-caption="Diploma Profesional en Python, SQL y Ciencia de Datos" data-en-caption="Professional Diploma in Python, SQL &amp; Data Science">
-                            <img src="static/img/certs/python-sql-ciencia-datos-2025-sm.webp" width="720" height="535" alt="Diploma Profesional en Python, SQL y Ciencia de Datos" data-en-alt="Professional Diploma in Python, SQL and Data Science" loading="lazy" decoding="async">
-                        </a>
-                        <div class="cert-body">
-                            <h3 class="cert-title" data-en="Professional Diploma in Python, SQL &amp; Data Science">Diploma Profesional en Python, SQL y Ciencia de Datos</h3>
-                            <p class="cert-issuer">STEAM Academy</p>
-                            <p class="cert-date"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#calendar"></use></svg><time datetime="2025-10-21" data-en="Oct 2025">oct 2025</time></p>
-                        </div>
-                    </article>
-
-                    <article class="cert reveal" data-cat="lead">
-                        <a class="cert-media" href="static/img/certs/munhuriba-2025.webp" data-gallery="certs" data-caption="Certificado Modelo de Naciones Unidas MUNHURIBA 2025" data-en-caption="MUNHURIBA 2025 Model United Nations certificate">
-                            <img src="static/img/certs/munhuriba-2025-sm.webp" width="720" height="579" alt="Certificado del Modelo de Naciones Unidas MUNHURIBA 2025" data-en-alt="MUNHURIBA 2025 Model United Nations certificate" loading="lazy" decoding="async">
-                        </a>
-                        <div class="cert-body">
-                            <h3 class="cert-title" data-en="MUNHURIBA Model United Nations 2025">Modelo de Naciones Unidas MUNHURIBA 2025</h3>
-                            <p class="cert-issuer">INETECODECOL · Soledad, Atlántico</p>
-                            <p class="cert-date"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#calendar"></use></svg><time datetime="2025-06-14" data-en="Jun 2025">jun 2025</time></p>
-                        </div>
-                    </article>
-
-                    <article class="cert reveal" data-cat="tech">
-                        <a class="cert-media" href="static/img/certs/python-modulo-1-2025.webp" data-gallery="certs" data-caption="Python Módulo 1: Fundamentos y Funciones Avanzadas" data-en-caption="Python Module 1: Fundamentals &amp; Advanced Functions">
-                            <img src="static/img/certs/python-modulo-1-2025-sm.webp" width="720" height="567" alt="Certificado Python Módulo 1" data-en-alt="Python Module 1 certificate" loading="lazy" decoding="async">
-                        </a>
-                        <div class="cert-body">
-                            <h3 class="cert-title" data-en="Python Module 1 — Fundamentals &amp; Advanced Functions">Python Módulo 1 — Fundamentos y Funciones Avanzadas</h3>
-                            <p class="cert-issuer">STEAM Academy · Fundación STEM Colombia</p>
-                            <p class="cert-date"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#calendar"></use></svg><time datetime="2025-06-05" data-en="Jun 2025">jun 2025</time></p>
-                        </div>
-                    </article>
-
-                    <article class="cert reveal" data-cat="tech">
-                        <a class="cert-media" href="static/img/certs/robotikids-2020.webp" data-gallery="certs" data-caption="Certificado de finalización: Robótica y Programación" data-en-caption="Completion certificate: Robotics &amp; Programming">
-                            <img src="static/img/certs/robotikids-2020-sm.webp" width="720" height="514" alt="Certificado de finalización de Robótica y Programación de RobotiKids" data-en-alt="RobotiKids Robotics and Programming completion certificate" loading="lazy" decoding="async">
-                        </a>
-                        <div class="cert-body">
-                            <h3 class="cert-title" data-en="Robotics &amp; Programming — Completion certificate">Robótica y Programación — Certificado de finalización</h3>
-                            <p class="cert-issuer">RobotiKids</p>
-                            <p class="cert-date"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#calendar"></use></svg><time datetime="2020-07-15" data-en="Jul 2020">jul 2020</time></p>
-                        </div>
-                    </article>
+                        <p class="certs-preview-note" data-en="Click a row to see the full certificate">Toca una fila para ver el certificado completo</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- ===================== NODO.DEV ===================== -->
-        <section class="section section-alt nodo" id="nodo" aria-labelledby="nodo-title">
-            <div class="container">
-                <div class="nodo-head reveal">
-                    <span class="brand-lockup">
-                        <img src="static/img/brand/nodo-logo.webp" width="160" height="160" alt="">
-                        <span class="brand-name">nodo<span>.dev</span></span>
-                    </span>
-                    <span class="brand-role" data-en="Founder &amp; CEO">Fundador y CEO</span>
-                </div>
-                <header class="section-head reveal">
-                    <p class="eyebrow"><span class="eyebrow-num">06</span><span data-en="Services">Servicios</span></p>
-                    <h2 class="section-title" id="nodo-title" data-en-html="AI-agent automation &lt;em&gt;for your business&lt;/em&gt;">Automatización con agentes de IA <em>para tu negocio</em></h2>
-                    <p class="section-lead" data-en="I design systems that take repetitive work off your team's hands.">Diseño sistemas que le quitan a tu equipo el trabajo repetitivo de encima.</p>
-                </header>
-
-                <div class="services-grid">
-                    <article class="service reveal">
-                        <div class="service-icon"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#bot"></use></svg></div>
-                        <h3 data-en="Custom AI agents">Agentes de IA a medida</h3>
-                        <p data-en="Assistants that answer, classify, draft and actually execute tasks, connected to the tools the business already uses.">Asistentes que responden, clasifican, redactan y ejecutan tareas de verdad, conectados a las herramientas que el negocio ya usa.</p>
-                    </article>
-                    <article class="service reveal">
-                        <div class="service-icon"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#workflow"></use></svg></div>
-                        <h3 data-en="Process automation">Automatización de procesos</h3>
-                        <p data-en="Flows that end the manual grind: reports, emails, inventory, order tracking and customer follow-up running on their own.">Flujos que acaban con el trabajo manual: reportes, correos, inventario, seguimiento de pedidos y atención al cliente corriendo solos.</p>
-                    </article>
-                    <article class="service reveal">
-                        <div class="service-icon"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#app-window"></use></svg></div>
-                        <h3 data-en="Web apps &amp; dashboards">Apps web y paneles</h3>
-                        <p data-en="Sites, internal dashboards and management systems built around how the business actually works, not the other way around.">Sitios, paneles internos y sistemas de gestión hechos a la medida de cómo funciona el negocio, no al revés.</p>
-                    </article>
-                    <article class="service reveal">
-                        <div class="service-icon"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#plug"></use></svg></div>
-                        <h3 data-en="Bots &amp; integrations">Bots e integraciones</h3>
-                        <p data-en="Discord and WhatsApp bots, Google Workspace, payment gateways and custom REST APIs talking to each other.">Bots de Discord y WhatsApp, Google Workspace, pasarelas de pago y APIs REST propias hablando entre sí.</p>
-                    </article>
-                </div>
-
-                <div class="nodo-cta reveal">
-                    <p data-en="Got a process eating up your team's time? Let's automate it.">¿Tienes un proceso que le come el tiempo a tu equipo? Automaticémoslo.</p>
-                    <div class="nodo-cta-actions">
-                        <a class="btn btn-primary" href="#contacto">
-                            <span data-en="Tell me about your project">Cuéntame tu proyecto</span>
-                            <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#arrow-right"></use></svg>
-                        </a>
-                        <a class="btn btn-ghost" href="https://www.instagram.com/nodo.dev/" target="_blank" rel="noopener">
-                            <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#instagram"></use></svg>
-                            @nodo.dev
-                        </a>
+        <section class="nodo" id="nodo" aria-labelledby="nodo-title">
+            <div class="wrap nodo-grid">
+                <div class="nodo-intro">
+                    <h2 class="section-title" id="nodo-title" data-split data-en="AI agents for your business">Agentes de IA para tu negocio</h2>
+                    <p class="section-lead" data-reveal data-en="AI-agent automation: I design systems that take repetitive work off your team's hands.">Automatización con agentes de IA: diseño sistemas que le quitan a tu equipo el trabajo repetitivo de encima.</p>
+                    <div class="nodo-cta" data-reveal-group>
+                        <p class="nodo-cta-line" data-reveal data-en="Got a process eating up your team's time? Let's automate it.">¿Tienes un proceso que le come el tiempo a tu equipo? Automaticémoslo.</p>
+                        <div class="nodo-cta-actions" data-reveal>
+                            <a class="btn btn-dark" href="#contacto">
+                                <span data-en="Tell me about your project">Cuéntame tu proyecto</span>
+                                <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#arrow-right"></use></svg>
+                            </a>
+                            <a class="text-link" href="https://www.instagram.com/nodo.dev/" target="_blank" rel="noopener">
+                                <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#instagram"></use></svg>
+                                @nodo.dev
+                            </a>
+                        </div>
+                        <p class="brand-lockup" data-reveal>
+                            <img src="static/img/brand/nodo-logo.webp" width="160" height="160" alt="">
+                            <span class="brand-name">nodo.dev</span>
+                            <span class="brand-role" data-en="Founder &amp; CEO">Fundador y CEO</span>
+                        </p>
                     </div>
                 </div>
+
+                <ul class="services" aria-label="Servicios" data-en-aria-label="Services" data-reveal-group>
+                    <li class="service" data-reveal>
+                        <h3 data-en="Custom AI agents">Agentes de IA a medida</h3>
+                        <p data-en="Assistants that answer, classify, draft and actually execute tasks, connected to the tools the business already uses.">Asistentes que responden, clasifican, redactan y ejecutan tareas de verdad, conectados a las herramientas que el negocio ya usa.</p>
+                    </li>
+                    <li class="service" data-reveal>
+                        <h3 data-en="Process automation">Automatización de procesos</h3>
+                        <p data-en="Flows that end the manual grind: reports, emails, inventory, order tracking and customer follow-up running on their own.">Flujos que acaban con el trabajo manual: reportes, correos, inventario, seguimiento de pedidos y atención al cliente corriendo solos.</p>
+                    </li>
+                    <li class="service" data-reveal>
+                        <h3 data-en="Web apps &amp; dashboards">Apps web y paneles</h3>
+                        <p data-en="Sites, internal dashboards and management systems built around how the business actually works, not the other way around.">Sitios, paneles internos y sistemas de gestión hechos a la medida de cómo funciona el negocio, no al revés.</p>
+                    </li>
+                    <li class="service" data-reveal>
+                        <h3 data-en="Bots &amp; integrations">Bots e integraciones</h3>
+                        <p data-en="Discord and WhatsApp bots, Google Workspace, payment gateways and custom REST APIs talking to each other.">Bots de Discord y WhatsApp, Google Workspace, pasarelas de pago y APIs REST propias hablando entre sí.</p>
+                    </li>
+                </ul>
             </div>
         </section>
 
         <!-- ===================== CONTACTO ===================== -->
-        <section class="section" id="contacto" aria-labelledby="contact-title">
-            <div class="container">
-                <div class="contact-card reveal">
-                    <div class="contact-aside">
-                        <img class="contact-bg" src="static/img/photos/juandi-atardecer-sm.webp" width="720" height="960" alt="" loading="lazy" decoding="async">
-                        <p class="eyebrow"><span class="eyebrow-num">07</span><span data-en="Contact">Contacto</span></p>
-                        <h2 class="section-title" id="contact-title" data-en="Let's build something together">Construyamos algo juntos</h2>
-                        <p class="contact-intro" data-en="Tell me about your idea, your process or your project and I'll get back to you as soon as I can.">Cuéntame tu idea, tu proceso o tu proyecto y te respondo lo antes posible.</p>
-                        <ul class="contact-list">
-                            <li>
-                                <a class="contact-link" href="mailto:vanegasarrietajuandiego@gmail.com">
-                                    <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#mail"></use></svg>
-                                    <span>vanegasarrietajuandiego@gmail.com</span>
-                                </a>
-                                <button class="icon-btn" type="button" data-copy="vanegasarrietajuandiego@gmail.com" aria-label="Copiar correo" data-en-aria-label="Copy email">
-                                    <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#copy"></use></svg>
-                                </button>
-                            </li>
-                            <li>
-                                <a class="contact-link" href="https://www.instagram.com/nodo.dev/" target="_blank" rel="noopener">
-                                    <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#instagram"></use></svg>
-                                    <span>@nodo.dev</span><small data-en="business">negocio</small>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="contact-link" href="https://www.instagram.com/j.vanegass/" target="_blank" rel="noopener">
-                                    <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#instagram"></use></svg>
-                                    <span>@j.vanegass</span><small>personal</small>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="contact-link" href="https://github.com/Juandi0127" target="_blank" rel="noopener">
-                                    <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#github"></use></svg>
-                                    <span>Juandi0127</span><small>GitHub</small>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="contact-link" href="https://www.tiktok.com/@juamdi.ww" target="_blank" rel="noopener">
-                                    <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#tiktok"></use></svg>
-                                    <span>@juamdi.ww</span><small>TikTok</small>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="contact-link" href="https://discord.com/users/975849415300505643" target="_blank" rel="noopener">
-                                    <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#discord"></use></svg>
-                                    <span>jacedjd0127</span><small>Discord</small>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+        <section class="contact" id="contacto" aria-labelledby="contact-title">
+            <figure class="contact-photo" data-reveal="open">
+                <img src="static/img/photos/juandi-atardecer.webp" width="960" height="1280" alt="Juan de espaldas frente al atardecer sobre el río" data-en-alt="Juan silhouetted against the sunset over the river" loading="lazy" decoding="async" data-parallax="-5">
+            </figure>
 
-                    <form class="contact-form" id="contactForm" name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <div class="contact-card">
+                <div class="contact-intro-block" data-reveal-group>
+                    <h2 class="section-title" id="contact-title" data-split data-en="Let's build something together">Construyamos algo juntos</h2>
+                    <p class="contact-intro" data-reveal data-en="Tell me about your idea, your process or your project and I'll get back to you as soon as I can.">Cuéntame tu idea, tu proceso o tu proyecto y te respondo lo antes posible.</p>
+                </div>
+
+                <div class="contact-cols">
+                    <ul class="contact-list" data-reveal-group>
+                        <li data-reveal>
+                            <a class="contact-link" href="mailto:vanegasarrietajuandiego@gmail.com">
+                                <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#mail"></use></svg>
+                                <span>vanegasarrietajuandiego@gmail.com</span>
+                            </a>
+                            <button class="icon-btn" type="button" data-copy="vanegasarrietajuandiego@gmail.com" aria-label="Copiar correo" data-en-aria-label="Copy email">
+                                <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#copy"></use></svg>
+                            </button>
+                        </li>
+                        <li data-reveal>
+                            <a class="contact-link" href="https://www.instagram.com/nodo.dev/" target="_blank" rel="noopener">
+                                <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#instagram"></use></svg>
+                                <span>@nodo.dev</span><small data-en="business">negocio</small>
+                            </a>
+                        </li>
+                        <li data-reveal>
+                            <a class="contact-link" href="https://www.instagram.com/j.vanegass/" target="_blank" rel="noopener">
+                                <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#instagram"></use></svg>
+                                <span>@j.vanegass</span><small>personal</small>
+                            </a>
+                        </li>
+                        <li data-reveal>
+                            <a class="contact-link" href="https://github.com/Juandi0127" target="_blank" rel="noopener">
+                                <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#github"></use></svg>
+                                <span>Juandi0127</span><small>GitHub</small>
+                            </a>
+                        </li>
+                        <li data-reveal>
+                            <a class="contact-link" href="https://www.tiktok.com/@juamdi.ww" target="_blank" rel="noopener">
+                                <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#tiktok"></use></svg>
+                                <span>@juamdi.ww</span><small>TikTok</small>
+                            </a>
+                        </li>
+                        <li data-reveal>
+                            <a class="contact-link" href="https://discord.com/users/975849415300505643" target="_blank" rel="noopener">
+                                <svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#discord"></use></svg>
+                                <span>jacedjd0127</span><small>Discord</small>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <form class="contact-form" id="contactForm" name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-reveal="rise">
                         <input type="hidden" name="form-name" value="contacto">
                         <p class="hp" aria-hidden="true">
                             <label>No llenes este campo <input name="bot-field" tabindex="-1" autocomplete="off"></label>
@@ -1102,31 +1039,40 @@
 
     <!-- ===================== PIE ===================== -->
     <footer class="site-footer">
-        <div class="container footer-inner">
-            <div class="footer-brand">
-                <a href="#inicio" class="nav-logo" aria-label="Juan Vanegas, ir al inicio" data-en-aria-label="Juan Vanegas, go to top"><span class="logo-bracket">&lt;</span>Juandi<span class="logo-bracket">/&gt;</span></a>
-                <p data-en="Full Stack Developer and AI automation from Barranquilla, Colombia.">Desarrollador Full Stack y automatización con IA desde Barranquilla, Colombia.</p>
+        <div class="footer-inner">
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <p class="footer-strong">Juan Vanegas · nodo.dev</p>
+                    <p data-en="Full Stack Developer and AI automation from Barranquilla, Colombia.">Desarrollador Full Stack y automatización con IA desde Barranquilla, Colombia.</p>
+                </div>
+                <nav class="footer-col footer-nav" aria-label="Secciones" data-en-aria-label="Sections">
+                    <p class="footer-strong" data-en="Sections">Secciones</p>
+                    <a href="#sobre-mi" data-en="About">Sobre mí</a>
+                    <a href="#proyectos" data-en="Projects">Proyectos</a>
+                    <a href="#juego" data-en="Game">Juego</a>
+                    <a href="#liderazgo" data-en="Leadership">Liderazgo</a>
+                    <a href="#logros" data-en="Awards">Logros</a>
+                    <a href="#nodo">nodo.dev</a>
+                    <a href="#contacto" data-en="Contact">Contacto</a>
+                </nav>
+                <div class="footer-col">
+                    <p class="footer-strong" data-en="Social">Redes</p>
+                    <ul class="footer-social" aria-label="Redes sociales" data-en-aria-label="Social links">
+                        <li><a href="https://github.com/Juandi0127" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#github"></use></svg>GitHub</a></li>
+                        <li><a href="https://www.instagram.com/j.vanegass/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#instagram"></use></svg>Instagram</a></li>
+                        <li><a href="https://www.tiktok.com/@juamdi.ww" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#tiktok"></use></svg>TikTok</a></li>
+                        <li><a href="https://discord.com/users/975849415300505643" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#discord"></use></svg>Discord</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-strong" data-en="Email">Correo</p>
+                    <a href="mailto:vanegasarrietajuandiego@gmail.com" class="footer-mail">vanegasarrietajuandiego@gmail.com</a>
+                    <p>© <span id="year">2026</span> Juan Vanegas · nodo.dev</p>
+                </div>
             </div>
-            <nav class="footer-nav" aria-label="Secciones" data-en-aria-label="Sections">
-                <a href="#sobre-mi" data-en="About">Sobre mí</a>
-                <a href="#proyectos" data-en="Projects">Proyectos</a>
-                <a href="#juego" data-en="Game">Juego</a>
-                <a href="#liderazgo" data-en="Leadership">Liderazgo</a>
-                <a href="#logros" data-en="Awards">Logros</a>
-                <a href="#nodo">nodo.dev</a>
-                <a href="#contacto" data-en="Contact">Contacto</a>
-            </nav>
-            <ul class="socials socials-sm" aria-label="Redes sociales" data-en-aria-label="Social links">
-                <li><a href="https://github.com/Juandi0127" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#github"></use></svg></a></li>
-                <li><a href="https://www.instagram.com/j.vanegass/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#instagram"></use></svg></a></li>
-                <li><a href="https://www.tiktok.com/@juamdi.ww" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#tiktok"></use></svg></a></li>
-                <li><a href="https://discord.com/users/975849415300505643" target="_blank" rel="noopener" aria-label="Discord"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#discord"></use></svg></a></li>
-                <li><a href="mailto:vanegasarrietajuandiego@gmail.com" aria-label="Correo" data-en-aria-label="Email"><svg class="icon" aria-hidden="true"><use href="static/img/icons.svg#mail"></use></svg></a></li>
-            </ul>
-        </div>
-        <div class="container footer-bottom">
-            <p>© <span id="year">2026</span> Juan Vanegas · nodo.dev</p>
-            <p data-en="Handmade with HTML, CSS &amp; JavaScript · Game ported from Unity">Hecho a mano con HTML, CSS y JavaScript · Juego portado desde Unity</p>
+
+            <p class="footer-wordmark" aria-hidden="true"><span class="wm-line"><span>J</span><span>u</span><span>a</span><span>n</span><span class="wm-space"> </span><span>V</span><span>a</span><span>n</span><span>e</span><span>g</span><span>a</span><span>s</span></span></p>
+            <p class="footer-legal" data-en="Handmade with HTML, CSS &amp; JavaScript · Game ported from Unity">Hecho a mano con HTML, CSS y JavaScript · Juego portado desde Unity</p>
         </div>
     </footer>
 

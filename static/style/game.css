@@ -11,15 +11,13 @@
     --vc-panel:  rgba(255,255,255,0.045);
     --vc-line:   rgba(255,255,255,0.1);
 
-    max-width: 980px;
+    max-width: 1040px;
     margin: 0 auto;
-    background: linear-gradient(180deg, rgba(252,211,77,0.05), rgba(56,189,248,0.04));
-    border: 1px solid var(--vc-line);
-    border-radius: calc(var(--r) + 4px);
-    padding: 20px;
+    background: var(--surface);
+    padding: clamp(12px, 2vw, 24px);
     outline: none;
 }
-.vc:focus-visible { border-color: var(--vc-yellow); }
+.vc:focus-visible { outline: 2px solid var(--vc-yellow); outline-offset: 4px; }
 
 /* ---------- Barra superior: secuencia + contadores ---------- */
 .vc-topbar {
@@ -33,17 +31,14 @@
     flex: 1 1 320px;
     min-width: 0;
     background: var(--vc-panel);
-    border: 1px solid var(--vc-line);
+    border: 1px solid var(--vc-line); /* taste-skill-ignore: piezas del juego */
     border-radius: 12px;
     padding: 10px 12px;
 }
 .vc-seq-label {
     display: block;
-    font-family: var(--mono);
-    font-size: 0.66rem;
+    font-size: 0.8125rem;
     font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
     color: var(--vc-yellow);
     margin-bottom: 8px;
 }
@@ -56,7 +51,7 @@
     padding-bottom: 2px;
     scrollbar-width: thin;
 }
-.vc-seq-empty { font-size: 0.82rem; color: var(--dim); font-style: italic; }
+.vc-seq-empty { font-size: 0.875rem; color: var(--dim); }
 
 /* Bloque de la secuencia (tocar = borrar) */
 .vc-block {
@@ -66,26 +61,31 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(124,58,237,0.16);
-    border: 1px solid rgba(157,106,255,0.45);
-    border-radius: 10px;
+    background: rgba(90,155,252,0.16);
+    border: 1px solid rgba(90,155,252,0.5); /* taste-skill-ignore: piezas del juego */
+    border-radius: 8px;
     color: var(--text);
     font-size: 1.35rem;
     line-height: 1;
     cursor: pointer;
-    transition: transform 0.18s var(--ease), background 0.18s, border-color 0.18s;
+    transition: transform 0.18s var(--ease), background-color 0.18s, border-color 0.18s;
+    animation: vc-block-in 0.28s var(--ease);
 }
-.vc-block:hover { transform: translateY(-3px); background: rgba(239,68,68,0.22); border-color: var(--vc-red); }
+@keyframes vc-block-in { from { opacity: 0; transform: translateY(6px) scale(0.92); } }
+.vc-block:active { transform: scale(0.94); }
+@media (hover: hover) and (pointer: fine) {
+    .vc-block:hover { transform: translateY(-3px); background: rgba(239,68,68,0.22); border-color: var(--vc-red); }
+}
 .vc-block-num {
     position: absolute;
     top: -6px; left: -5px;
     width: 17px; height: 17px;
     display: flex; align-items: center; justify-content: center;
     background: var(--bg-3);
-    border: 1px solid var(--vc-line);
+    border: 1px solid var(--vc-line); /* taste-skill-ignore: piezas del juego */
     border-radius: 50%;
-    font-family: var(--mono);
-    font-size: 0.58rem;
+    font-size: 0.625rem;
+    font-variant-numeric: tabular-nums;
     color: var(--muted);
 }
 .vc-block.is-running {
@@ -108,7 +108,7 @@
 .vc-stats { display: flex; gap: 10px; flex: 0 0 auto; }
 .vc-stat {
     background: var(--vc-panel);
-    border: 1px solid var(--vc-line);
+    border: 1px solid var(--vc-line); /* taste-skill-ignore: piezas del juego */
     border-radius: 10px;
     padding: 8px 13px;
     text-align: center;
@@ -116,25 +116,29 @@
 }
 .vc-stat b {
     display: block;
-    font-family: var(--mono);
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-size: 1.125rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
     color: var(--vc-yellow);
     line-height: 1.2;
 }
 .vc-stat span {
-    font-size: 0.6rem;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
+    font-size: 0.8125rem;
     color: var(--dim);
 }
 
 /* ---------- Tablero ---------- */
 .vc-board-wrap {
     position: relative;
-    border-radius: 12px;
+    border-radius: 8px;
     overflow: hidden;
-    border: 1px solid var(--vc-line);
+}
+.vc-board::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(5,5,8,0.42);
+    pointer-events: none;
 }
 .vc-board {
     position: relative;
@@ -144,16 +148,14 @@
     gap: 3px;
     padding: 3px;
     aspect-ratio: 8 / 5;
-    background:
-        linear-gradient(rgba(5,5,8,0.42), rgba(5,5,8,0.42)),
-        url('../img/game/paseo-bolivar.webp') center/cover no-repeat;
+    background: #3a3f4a url('../img/game/paseo-bolivar.webp') center/cover no-repeat;
 }
 
 .vc-cell {
     position: relative;
     border-radius: 5px;
     background: rgba(255,255,255,0.12);
-    transition: background 0.25s var(--ease), box-shadow 0.25s;
+    transition: background 0.25s var(--ease), box-shadow 0.25s; /* taste-skill-ignore: estado del tablero del juego */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -163,19 +165,19 @@
     height: 86%;
     object-fit: contain;
     pointer-events: none;
-    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5)); /* taste-skill-ignore: sprites del juego sobre el tablero */
 }
 .vc-cell.is-start {
     background: rgba(252,211,77,0.55);
-    box-shadow: inset 0 0 0 2px rgba(252,211,77,0.85);
+    box-shadow: inset 0 0 0 2px rgba(252,211,77,0.85); /* taste-skill-ignore: borde de casilla del juego */
 }
 .vc-cell.is-goal {
     background: rgba(34,197,94,0.55);
-    box-shadow: inset 0 0 0 2px rgba(34,197,94,0.9);
+    box-shadow: inset 0 0 0 2px rgba(34,197,94,0.9); /* taste-skill-ignore: borde de casilla del juego */
 }
 .vc-cell.is-obstacle {
     background: rgba(239,68,68,0.42);
-    box-shadow: inset 0 0 0 2px rgba(239,68,68,0.7);
+    box-shadow: inset 0 0 0 2px rgba(239,68,68,0.7); /* taste-skill-ignore: borde de casilla del juego */
 }
 .vc-cell.is-preview  { background: rgba(56,189,248,0.5); }
 .vc-cell.is-current  { background: rgba(255,255,255,0.75); }
@@ -185,11 +187,12 @@
 }
 .vc-cell.is-won {
     background: rgba(34,197,94,0.85);
-    box-shadow: 0 0 22px rgba(34,197,94,0.7);
+    box-shadow: inset 0 0 0 2px rgba(187,247,208,0.9); /* taste-skill-ignore: borde de casilla del juego */
 }
 .vc-goal-flag {
-    font-size: clamp(0.9rem, 3vw, 1.6rem);
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
+    width: 46%;
+    height: 46%;
+    color: #fff7d6;
 }
 
 /* Karlitos encima del tablero */
@@ -202,7 +205,7 @@
     transition: left 0.42s var(--ease), top 0.42s var(--ease);
     pointer-events: none;
     z-index: 3;
-    filter: drop-shadow(0 3px 7px rgba(0,0,0,0.55));
+    filter: drop-shadow(0 3px 7px rgba(0,0,0,0.55)); /* taste-skill-ignore: sprites del juego sobre el tablero */
 }
 .vc-hero.is-flipped { transform: translate(-50%, -55%) scaleX(-1); }
 
@@ -213,7 +216,7 @@
     gap: 12px;
     margin-top: 14px;
     background: var(--vc-panel);
-    border: 1px solid var(--vc-line);
+    border: 1px solid var(--vc-line); /* taste-skill-ignore: piezas del juego */
     border-left: 3px solid var(--vc-yellow);
     border-radius: 12px;
     padding: 12px 14px;
@@ -222,12 +225,12 @@
 .vc-guide-img {
     width: 54px;
     flex: 0 0 auto;
-    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)); /* taste-skill-ignore: sprites del juego sobre el tablero */
 }
 .vc-msg-text {
-    font-size: 0.88rem;
+    font-size: 0.9375rem;
     line-height: 1.6;
-    color: var(--muted);
+    color: var(--ink-soft);
 }
 .vc-msg:has(.vc-msg-text.is-error) { border-left-color: var(--vc-red); }
 .vc-msg-text.is-error { color: #fca5a5; }
@@ -245,21 +248,19 @@
 .vc-arrow {
     width: 50px; height: 50px;
     display: flex; align-items: center; justify-content: center;
-    background: rgba(124,58,237,0.14);
-    border: 1px solid rgba(157,106,255,0.4);
-    border-radius: 12px;
+    background: rgba(90,155,252,0.14);
+    border: 1px solid rgba(90,155,252,0.45); /* taste-skill-ignore: piezas del juego */
+    border-radius: 10px;
     color: var(--text);
     font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    transition: all 0.2s var(--ease);
+    transition: transform 0.14s var(--ease), background-color 0.18s ease, border-color 0.18s ease;
 }
-.vc-arrow:hover {
-    background: rgba(124,58,237,0.3);
-    border-color: var(--primary-l);
-    transform: translateY(-3px);
+@media (hover: hover) and (pointer: fine) {
+    .vc-arrow:hover { background: rgba(90,155,252,0.28); border-color: var(--primary-l); }
 }
-.vc-arrow:active { transform: translateY(0) scale(0.94); }
+.vc-arrow:active { transform: scale(0.92); }
 
 .vc-actions { display: flex; gap: 9px; flex-wrap: wrap; }
 .vc-btn {
@@ -267,25 +268,30 @@
     align-items: center;
     gap: 7px;
     padding: 11px 18px;
-    border-radius: 10px;
-    border: 1px solid var(--card-border);
+    min-height: 44px;
+    border-radius: 8px;
+    border: 1px solid var(--card-border); /* taste-skill-ignore: piezas del juego */
     background: transparent;
-    color: var(--muted);
+    color: var(--ink-soft);
     font-family: var(--sans);
-    font-size: 0.84rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.22s var(--ease);
+    transition: transform 0.14s var(--ease), color 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
 }
-.vc-btn:hover:not(:disabled) { color: var(--text); border-color: var(--primary-l); transform: translateY(-2px); }
+.vc-btn:active:not(:disabled) { transform: scale(0.97); }
+@media (hover: hover) and (pointer: fine) {
+    .vc-btn:hover:not(:disabled) { color: var(--text); border-color: var(--primary-l); }
+}
 .vc-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 .vc-btn-run {
-    background: linear-gradient(135deg, var(--vc-yellow), #f59e0b);
+    background: var(--vc-yellow);
     border-color: transparent;
     color: #1a1204;
-    box-shadow: 0 0 22px rgba(245,158,11,0.28);
 }
-.vc-btn-run:hover:not(:disabled) { color: #1a1204; box-shadow: 0 0 34px rgba(245,158,11,0.5); }
+@media (hover: hover) and (pointer: fine) {
+    .vc-btn-run:hover:not(:disabled) { color: #1a1204; background: #fde68a; border-color: transparent; }
+}
 
 /* ---------- Pantalla de victoria ---------- */
 .vc-win {
@@ -299,21 +305,23 @@
     gap: 12px;
     padding: 22px;
     text-align: center;
-    background: rgba(5,5,8,0.93);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    background: rgba(10,13,20,0.95);
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.4s var(--ease), visibility 0.4s;
 }
+.vc-win > * { transform: translateY(12px); opacity: 0; transition: transform 0.6s var(--ease-expo), opacity 0.4s ease; }
 .vc-win.is-open { opacity: 1; visibility: visible; }
+.vc-win.is-open > * { transform: none; opacity: 1; }
+.vc-win.is-open > *:nth-child(2) { transition-delay: 80ms; }
+.vc-win.is-open > *:nth-child(3) { transition-delay: 160ms; }
+.vc-win.is-open > *:nth-child(4) { transition-delay: 220ms; }
+.vc-win.is-open > *:nth-child(5) { transition-delay: 280ms; }
 .vc-win h4 {
     font-size: clamp(1.2rem, 4vw, 1.7rem);
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--vc-yellow), var(--vc-green));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--vc-yellow);
 }
 .vc-masks { display: flex; gap: 14px; }
 .vc-mask {
@@ -321,7 +329,7 @@
     opacity: 0.18;
     filter: grayscale(1);
     transform: scale(0.85);
-    transition: all 0.45s var(--ease);
+    transition: opacity 0.45s var(--ease), transform 0.45s var(--ease), filter 0.45s ease;
 }
 .vc-mask.is-earned {
     opacity: 1;
@@ -335,34 +343,24 @@
     100% { transform: scale(1) rotate(0); }
 }
 .vc-win-score {
-    font-family: var(--mono);
-    font-size: 0.8rem;
+    font-size: 0.875rem;
+    font-variant-numeric: tabular-nums;
     color: var(--muted);
 }
 .vc-win-score b { color: var(--vc-yellow); }
 .vc-win-lesson {
     max-width: 460px;
-    font-size: 0.84rem;
+    font-size: 0.9375rem;
     line-height: 1.65;
-    color: var(--dim);
-    border-top: 1px solid var(--vc-line);
-    padding-top: 12px;
-}
-
-/* ---------- Nota bajo el juego ---------- */
-.game-note {
-    max-width: 720px;
-    margin: 20px auto 0;
-    text-align: center;
-    font-size: 0.8rem;
-    line-height: 1.7;
-    color: var(--dim);
+    color: var(--ink-soft);
+    padding-top: 4px;
 }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 720px) {
     /* Se recorta el margen lateral para que el tablero gane ancho real. */
-    #game .container { padding-left: 14px; padding-right: 14px; }
+    #juego .wrap { padding-left: 12px; padding-right: 12px; }
+    .game-head { padding-inline: 4px; }
     .vc { padding: 10px; }
     .vc-stats { width: 100%; }
     .vc-stat { flex: 1; }
@@ -370,7 +368,7 @@
     .vc-pad, .vc-actions { width: 100%; justify-content: center; }
     .vc-arrow { width: 46px; height: 46px; font-size: 1.3rem; }
     .vc-guide-img { width: 42px; }
-    .vc-msg-text { font-size: 0.8rem; }
+    .vc-msg-text { font-size: 0.875rem; }
     .vc-mask { width: 44px; }
 }
 
